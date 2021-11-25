@@ -35,7 +35,7 @@ By downloading libratools you agree with the following points: libratools is pro
 
 ## Maintenance
 
-* [Vince J. Straub](https://github.com/vincejstraub)  
+* [Vincent J. Straub](https://github.com/vincejstraub)  
 
 ## Requirements
 
