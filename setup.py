@@ -11,8 +11,8 @@ setup(
     # metadata to display on PyPI
     author = "Vincent (Vince) J. Straub",
     author_email = "vincejstraub@gmail.com",
-#     description = "Tools for pre-processing high-throughput animal tracking data.",
-#     keywords = "tool, dashboard, tracking",
+    description = "Tools for pre-processing high-throughput animal tracking data.",
+    keywords = "tool, dashboard, tracking",
     # url = "http://example.com/HelloWorld/",   # project home page, if any
     # project_urls = {
     #     "Bug Tracker": "https://bugs.example.com/HelloWorld/",
