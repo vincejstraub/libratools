@@ -20,13 +20,13 @@ It takes as input the date (YYYYMMDD) and produces a dashboard as output for rec
 
 To preprocess files, run the following argument from the command line: 
 
-`$ python preprocess.py date filter`
+`$ python preprocess.py date`
 
 Or within a notebook:
 
 ```python
 # To preprocess files, run the following argument from the command line: 
-python preprocess.py date filter
+python preprocess.py date 
 ```
 
 ## User Agreement
