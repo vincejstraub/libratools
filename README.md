@@ -47,4 +47,4 @@ Please follow  online instructions to install the required libraries, depending 
 
 ## Acknowledgements
 
-Parts of libratools' code implementation and analytical methods (particularly `get_relative_turning_angle()`) are inspired by Pratik Gupte's R package [`atlastools`](https://github.com/pratikunterwegs/atlastools). Many thanks to Pratik for his feedback.
+Parts of libratools' code implementation and analytical methods (particularly `get_relative_turning_angle()`) are inspired by Pratik Gupte's R package [`atlastools`](https://github.com/pratikunterwegs/atlastools). 
