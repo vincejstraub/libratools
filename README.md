@@ -44,7 +44,3 @@ Requirements are listed in the file :
 * `requirements.txt`
 
 Please follow  online instructions to install the required libraries, depending on your operating system and machine specifications.
-
-## Acknowledgements
-
-Parts of libratools' code implementation and analytical methods (particularly `get_relative_turning_angle()`) are inspired by Pratik Gupte's R package [`atlastools`](https://github.com/pratikunterwegs/atlastools). 
