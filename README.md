@@ -14,20 +14,9 @@ libratools does not provide functionality to label trajectories; it operates on 
 
  $ `pip install -e . --user.` 
 
-## Usage
+## Package documentation
 
-It takes as input the date (YYYYMMDD) and produces a dashboard as output for recordings for that day.
-
-To preprocess files, run the following argument from the command line: 
-
-`$ python preprocess.py date`
-
-Or within a notebook:
-
-```python
-# To preprocess files, run the following argument from the command line: 
-python preprocess.py date 
-```
+The package functions are conveniently documented at the package website: https://vincejstraub.github.io/tools-libratools/
 
 ## User Agreement
 
