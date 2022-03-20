@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>libratools.lbt_utils API documentation</title>
+<meta name="description" content="The libratools.lbt_utils module includes various utilities and private
+functions." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>libratools.lbt_utils</code></h1>
+</header>
+<section id="section-intro">
+<p>The libratools.lbt_utils module includes various utilities and private
+functions.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+&#34;&#34;&#34;
+The libratools.lbt_utils module includes various utilities and private
+functions.
+&#34;&#34;&#34;
+
+import datetime     # standard library        
+import calendar
+
+import statistics    # 3rd party packages
+import numpy as np
+import pandas as pd
+
+from . import lbt_datasets   # local imports
+
+
+__author__ = &#34;Vincent (Vince) J. Straub&#34;
+__email__ = &#34;vincejstraub@gmail.com&#34;
+__status__ = &#34;Testing&#34;
+
+
+def main():
+    pass
+
+
+def count_dropped_frames(x):
+    &#34;&#34;&#34;
+    Returns number of NaN frames in provided array along.
+    &#34;&#34;&#34;
+    x_arr = np.array(x)
+    num_nans = np.count_nonzero(np.isnan(x_arr))
+
+    return num_nans
+
+
+def count_missing_values(df, cols, idxs=False):
+    &#34;&#34;&#34;
+    Returns the number of rows with missing values for each provided
+    column of a DataFrame as well as the total number for all columns.
+
+    Args:
+        df (DataFrame): pandas DataFrame.
+        cols (list): pandas DataFrame columns to check for missing row values.
+        idxs (bool, default=False): if idxs=True, the index for each row is
+            also returned.
+
+    Returns:
+        A dict of column name as the key and a tuple of the number of
+            misssing rows and the index for each row as values.
+    &#34;&#34;&#34;
+    na_rows = {}
+
+    # collect the total number of missing rows and row index
+    missing_val_idxs = list(df.index[df.isna().any(axis=1)])
+    if len(missing_val_idxs) &gt; 0:
+        na_rows[&#39;total_nans_across_cols&#39;] = df.isna().values.sum()
+    else:
+        na_rows[&#39;total_nans_across_cols&#39;] = 0
+
+    # collect the number of missing rows and row index for each column
+    for col in list(cols):
+        col_name = col + &#39;_nans&#39;
+        missing_val_idxs = df[df[col].isnull()].index.tolist()
+        if len(missing_val_idxs) &gt; 0:
+            na_rows[col_name] = len(missing_val_idxs)
+            if idxs is True:
+                na_rows[col_name + &#39;_idxs&#39;] = missing_val_idxs
+        else:
+            na_rows[col_name] = 0
+
+    return na_rows
+
+
+def partition_segment(df, time_series, segment_num, cols=[&#39;x&#39;, &#39;y&#39;], thresh=5,
+                      unit=&#39;seconds&#39;, segment_limit=2, data_loss_limit=0.5):
+    &#34;&#34;&#34;
+    Returns or discards dataset using the following decision rule:
+    if more than 50% (default value) of recording is in tact in no more
+    than 2 (default value) continuous segments the dataset is deemed worth using
+    and is kept. Continuous is defined by default as &#39;no time interval gap
+    between consecutive frames greater than 5 seconds (5000 milliseconds)&#39;.
+    If the dataset is split, a list of dataframes is returned, if discarded,
+    None is returned.
+
+    Args:
+        df (DataFrame): pandas DataFrame containing time stamps.
+        time_series (Series): list of values containing time stamps/frame value.
+        cols (list): pandas DataFrame columns to check for missing row values.
+        missing_vals (list): number of missing rows for key columns.
+        thresh (int, default=5): threshold for deciding when to create
+            new DataFrame based on change in time interval value.
+        unit (str, default=seconds): time unit for thresh value.
+        segment_limit (int, default=4): maximum number of continuous blocks.
+        data_loss_limit (float, default=0.5): threshold that determines maximum 
+            amount of data loss permitted before a dataset is discarded.
+    Returns:
+        DataFrames and number of DataFrames as integer.
+    &#34;&#34;&#34;
+    if unit == &#39;seconds&#39;:
+        thresh_val = thresh * 1000
+    elif unit == &#39;milliseconds&#39;:
+        pass
+    else:
+        ValueError(&#34;Time unit must be in seconds or milliseconds.&#34;)
+
+    # compute number of missing vals then drop these rows from a dummy df
+    nan_percent = (df[cols].isnull().sum() / len(df)).sum()
+    temp_df = df.copy()
+    temp_df.dropna(inplace=True)
+
+    # compute time change between frames and create new column
+    temp_df[&#39;MillisecsBetweenFRAMES&#39;] = (time_series - time_series.shift())
+
+    # append a new DataFrame when time interval value exceeds threshold
+    temp_dfs = {}
+    for _, g in temp_df.groupby((temp_df.MillisecsBetweenFRAMES.diff() 
+                                 &gt; thresh_val).cumsum()):
+        temp_dfs[_] = g
+
+    dfs = {}
+    # implement decision rule to decide whether to keep dataset
+    if len(temp_dfs.keys()) &gt; segment_limit and nan_percent &lt;= data_loss_limit:
+        print(f&#39;Skipped segment {segment_num}, segment limit surpassed.&#39;)
+        return dfs, 0
+    elif len(temp_dfs.keys()) &lt;= segment_limit and nan_percent &gt; data_loss_limit:
+        print(f&#39;Skipped segment {segment_num}, data loss limit surpassed.&#39;)
+        return dfs, 0
+    elif len(temp_dfs.keys()) &gt; segment_limit and nan_percent &gt; data_loss_limit:
+        print(f&#39;Skipped segment {segment_num}, data loss and segment limit surpassed.&#39;)
+        return dfs, 0
+    else:
+        df[&#39;MillisecsBetweenFRAMES&#39;] = (time_series-time_series.shift())
+        # return original DataFrame with nans
+        for _, g in df.groupby((df.MillisecsBetweenFRAMES.diff() &gt; thresh_val).cumsum()):
+            dfs[_] = g
+        # return dfs and number of dfs for indexing
+        num_dfs = len(dfs.keys())
+
+        return dfs, num_dfs
+
+
+def aggregate_segments(dfs, time_interval=40, save_trajectory=False,
+                       metadata=[&#39;&#39;], file_name=&#39;&#39;, suffix=&#39;_processed&#39;,
+                       save_msg=True, outdir=&#39;&#39;):
+    &#34;&#34;&#34;
+    Returns DataFrame of aggregated segments, individual DataFrames, optionally
+    saving combined file to disk using index as reference column to maintain
+    global FRAME count.
+
+    Args:
+        dataframes (dict): DataFrames of each segment.
+        time_interval (int, default=40): modal time interval.
+        save_trajectory (bool, default=True): if save_trajectory=True, aggregated
+            CSV file is saved to disk.
+        metadata (list, default=[&#39;&#39;]): list of strings to prepend to CSV file
+            if saved to disk.
+        outdir (str, default=&#39;.&#39;): path of directory where to save aggregated
+            file, default is current working directory.
+        file_name (str, default=&#39;&#39;): file name.
+        suffix (str, default=&#39;_processed&#39;): suffix to add to the end of file
+            when saving.
+    Returns:
+        Dict of aggregated DataFrame and list of metadata
+    &#34;&#34;&#34;
+    all_dfs = {}
+    dropped_frames_counter = 0
+    MillisecsByFPS_counter = 0
+    # load CSV and append to list with segment file name as new column
+    for segment in dfs.keys():
+        # create new local FRAME column
+        dfs[segment][&#39;data&#39;].insert(
+            loc=1, column=&#39;localFRAME&#39;, value=dfs[segment][&#39;data&#39;].index)
+        # set FRAME as index to maintain cumulative count when concatenating
+        dfs[segment][&#39;data&#39;].set_index(&#39;FRAME&#39;, inplace=True)
+        # create new column which stores video chunk segment number
+        dfs[segment][&#39;data&#39;][&#39;chunk_segment&#39;] = segment
+        # add last MillisecsByFPS value to counter to maintain cumulative count
+        if segment == list(dfs.keys())[0]:
+            last_MillisecsByFPS_val = dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;].iloc[-1]
+            # add time_interval as MillisecsByFPS starts at 0l
+            MillisecsByFPS_counter += (last_MillisecsByFPS_val + time_interval)
+            # add 0 to first row of first segment
+            dfs[segment][&#39;data&#39;].at[0, &#39;MillisecsBetweenFRAMES&#39;] = 0
+        else:
+            last_MillisecsByFPS_val = dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;].iloc[-1]
+            # skip first segment when adding MillisecsByFPS_counter
+            dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;] = dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;] + \
+                MillisecsByFPS_counter
+            MillisecsByFPS_counter += (last_MillisecsByFPS_val + time_interval)
+            # add time_interval to first row of subsequent segments
+            dfs[segment][&#39;data&#39;].at[0, &#39;MillisecsBetweenFRAMES&#39;] = time_interval
+        all_dfs[segment] = {&#39;data&#39;: dfs[segment][&#39;data&#39;]}
+        dropped_frames_counter += dfs[segment][&#39;metadata&#39;][&#39;dropped_frames&#39;]
+
+    # aggregate DataFrames and insert global FRAME as a separate column
+    list_of_dfs = [all_dfs[i][&#39;data&#39;] for i in all_dfs.keys()]
+    aggregate_df = pd.concat(list_of_dfs, ignore_index=True)
+    aggregate_df.insert(loc=0, column=&#39;FRAME&#39;, value=aggregate_df.index)
+    aggregate_df.rename(columns={&#39;FRAME&#39;: &#39;globalFRAME&#39;}, inplace=True)
+
+    # clean metadata by removing comment chars
+    metadata_clean = [i.split(&#39;#&#39;)[1].strip() for i in metadata]
+
+    # add dropped frames, missing values count and metdata to dict
+    aggregate_data_metadata_df = {
+        &#39;data&#39;: aggregate_df,
+        &#39;metadata&#39;:{
+             &#39;source_name&#39;: metadata_clean[0],
+             &#39;source_fps&#39;: metadata_clean[1],
+             &#39;generation_time&#39;: metadata_clean[2],
+             &#39;dropped_frames&#39;: dropped_frames_counter},
+    }
+
+    # save aggregated DataFrame to disk as CSV and/or return for preprocessing
+    if save_trajectory is True:
+        # drop video chunk number from file name
+        lbt_datasets.save_trajectory_to_csv(
+            aggregate_df, metadata=metadata, f_name=file_name,
+            outdir=outdir, suffix=suffix, save_msg=save_msg)
+
+    return aggregate_data_metadata_df
+
+
+def split_series_on_datestr(df, col, HH=&#39;&#39;, MM=&#39;&#39;, SS=&#39;&#39;, YYYYMMDD=&#39;&#39;):
+    &#34;&#34;&#34;
+    Split pandas.DataFrame into two on the basis of value in a column with
+    datetime values using &#39;YYYY-MM-DD HH:MM:SS&#39;
+    
+    Args:
+        df (pandas.DataFrame): dataframe to split.
+        col (pandas.Series): column to split on.
+        HH (str, default=&#39;&#39;): hour value in 24-hour clock format. 
+        MM (str, default=&#39;&#39;): minute value.
+        SS (str, default=&#39;&#39;): second value.
+        
+    Returns:
+        df_split (pandas.DataFrame)
+    &#34;&#34;&#34;
+    yyyy = YYYYMMDD[:4]
+    mm = YYYYMMDD[4:6]
+    dd = YYYYMMDD[-2:]
+    if YYYYMMDD == &#39;&#39;:
+        yyyymmdd = str(df[col][0].to_period(&#39;D&#39;))
+
+    ts = f&#39;{yyyymmdd} {HH}:{MM}:{SS}&#39;
+    split_ts = datetime.datetime.strptime(ts, &#39;%Y-%m-%d %H:%M:%S&#39;)
+    
+    df_split = df.loc[df[col] &gt; split_ts]
+    
+    return df_split
+
+
+def strptime_date_arg(date):
+    &#34;&#34;&#34;
+    Returns string as foramtted datetime object using the regex format:
+    %Y-%M-%d (%a) where string is expected to be in the format YYYYMMDD.
+    &#34;&#34;&#34;
+    try:
+        int(date)
+    except ValueError:
+        print(f&#39;{date} does not exclusively contain integers.&#39;)
+    try:
+        _ = datetime.datetime.strptime(date, &#39;%Y%M%d&#39;)
+        datetime_obj = _.strftime(&#39;%Y-%M-%d&#39;)
+        return datetime_obj
+    except ValueError:
+        print(f&#39;{date} is not in the format YYYYMMDD.&#39;)
+
+
+def get_date(string=True, delta=0, date_format=&#39;%Y%m%d&#39;):
+    &#34;&#34;&#34;
+    Returns date for which to preprocess CSV files generated by BioTracker, the
+    default behavior is to return today&#39;s date as a &#39;YYYYMMDD&#39; string.
+
+    Args:
+        string (bool, default=True): if string=True, datetime object is
+            returned as a string.
+        delta (int, default=0): number of days to add or subtract to current
+            date to get desired date, if default=0 current date is returned.
+        date_format (str, default=&#39;%Y%m%d&#39;): format for datetime string, if
+            default=&#39;%Y%m%d&#39; date will be in the form &#39;YYYMMMDD&#39;.
+
+    Returns:
+        date (datetime or str).
+    &#34;&#34;&#34;
+    date = datetime.datetime.now() + datetime.timedelta(delta)
+    if string:
+        return date.strftime(f&#39;{date_format}&#39;)
+    else:
+        return date
+
+
+def unixtime_to_strtime(ut, str_format=&#39;%Y-%m-%d %H:%M:%S.%f&#39;):
+    &#34;&#34;&#34;
+    Returns unix time object in datetime formatted string.
+
+    Args:
+        ut (float): unix time stamp.
+        str_format(str, default=&#39;%Y-%m-%d %H:%M:%S.%f&#39;): format
+            for datetime object.
+
+    Returns:
+        ts_formatted (datetime.datetime)
+    &#34;&#34;&#34;
+    ts = float(ut)
+    try:
+        ts = datetime.datetime.utcfromtimestamp(ts)
+        ts = ts.strftime(f&#39;{str_format}&#39;)
+        return ts
+    except ValueError:
+        print(&#39;Unix time stamp must be in seconds, not milliseconds.&#39;)
+        
+
+def to_local_datetime(utc_dt):
+    &#34;&#34;&#34;
+    Converts from utc datetime to a locally aware datetime according
+    to the host timezone.
+    
+    Args:
+        utc_dt (datetime.datetime): utc datetime object.
+    
+    Returns:
+        local timezone datetime
+    &#34;&#34;&#34;
+    try:
+        return datetime.datetime.fromtimestamp(calendar.timegm(utc_dt.timetuple()))
+    except ValueError:
+        print(&#39;respective loopbio array missing frame_time value&#39;)
+        return None
+
+def convert_seconds(s):
+    &#34;&#34;&#34;
+    Converts seconds to minutes and hours.
+    
+    Args:
+        s (float): value in seconds.
+        
+    Returns:
+        mins (float): s in minutes
+        hrs (float): s in hours.   
+    &#34;&#34;&#34;
+    mins = s / 60
+    hrs = s / 3600
+    
+    return mins, hrs
+
+
+def convert_milliseconds(ms):
+    &#34;&#34;&#34;
+    Converts milliseconds to seconds, minutes, hours, and days.
+
+    Args:
+        ms (float): value in milliseconds.
+
+    Returns:
+        MillisecsBySecsMinsHrs (list): ms in seconds, minutes, hours, days.
+    &#34;&#34;&#34;
+    secs = ms / 1000.0
+    mins = secs / 60.0
+    hrs = mins / 60.
+    MillisecsBySecsMinsHrsDays = {
+        &#39;secs&#39;: secs, &#39;mins&#39;: mins, &#39;hrs&#39;: hrs, &#39;days&#39;: days
+    }
+
+    return MillisecsBySecsMinsHrs
+
+
+def add_nested_vals_to_dict(dic1, dic2, key3=&#39;metadata&#39;, 
+                            keys2=[&#39;treatment&#39;, &#39;begin_treatment&#39;]):
+    &#34;&#34;&#34;
+    Add values from one nested dictionary to another.
+    &#34;&#34;&#34;
+    for key1 in dic1.keys():
+        for key2 in keys2:
+            dic1[key1][key3][key2] = dic2[key1][key2]
+
+    return dic1
+
+
+def sum_dict_vals(dic, keys=[&#39;x_nans&#39;, &#39;y_nans&#39;, &#39;globalFRAME&#39;]):
+    &#34;&#34;&#34;
+    Returns maximum value of values for selective keys of a dictionary.
+
+    Args:
+        dic (dict): dict to iterate through.
+        keys (list, default=[&#39;x_nans&#39;, &#39;y_nans&#39;,]): keys to iteratve 
+            over.
+
+    Returns:
+        val (int): maximum value
+    &#34;&#34;&#34;
+    val = max([dic[key] for key in dic.keys() if key in keys])
+
+    return val
+
+
+def validate_date_arg(date, date_format=&#39;YYYYMMDD&#39;):
+    &#34;&#34;&#34;
+    Validates date string is in format YYYYMMDD, prints error message
+    if not.
+
+    Args:
+        date (str): date to validate.
+    &#34;&#34;&#34;
+    try:
+        datetime.datetime.strptime(date, &#39;%Y%m%d&#39;)
+    except ValueError:
+        raise ValueError(f&#39;Incorrect date argument, expected: {date_format}&#39;)
+
+
+def strlist_to_intlist(strlist):
+    &#34;&#34;&#34;
+    Returns list of strings as list of ints.
+    &#34;&#34;&#34;
+    try:
+        intlist = [int(i) for i in strlist]
+        return intlist
+    except ValueError:
+        print(&#39;The list argument does not exclusively contain numbers.&#39;)
+
+
+def update_setup(dic, new_vals):
+    &#34;&#34;&#34;
+    Appends dictionary values to existing dictionary.
+    &#34;&#34;&#34;
+    for k, v in new_vals.items():
+        dic[k].append(v)
+
+    return dic
+
+
+def _is_type(obj, object_type):
+    &#34;&#34;&#34;
+    Checks object type against expect type.
+    &#34;&#34;&#34;
+    if not isinstance(obj, object_type):
+        print(f&#39;Input is {type(obj)}, expected {object_type}.&#39;)
+
+
+def _has_cols(df, cols={&#39;x&#39;, &#39;y&#39;}):
+    &#34;&#34;&#34;
+    Checks if specified columns are in pandas.DataFrame.
+    &#34;&#34;&#34;
+    if not cols.issubset(df.columns):
+        print(f&#39;The following columns are all required: {cols}&#39;)
+
+
+def drop_missing_coord_vals(df, cols=[&#39;x&#39;, &#39;y&#39;, &#39;rad&#39;,
+                                      &#39;deg&#39;, &#39;xpx&#39;, &#39;ypx&#39;]):
+    &#34;&#34;&#34;
+    Returns DataFrame after dropping NaN values in select columns with
+    index reset.
+    &#34;&#34;&#34;
+    df.dropna(subset=cols, how=&#39;all&#39;, inplace=True)
+
+    return df
+
+
+def get_nested_dict_values(nested_dic, key1=&#39;metadata&#39;, key2=&#39;activity&#39;):
+    &#34;&#34;&#34;
+    Returns list of values as floats for select key of a nested dictionary.
+    &#34;&#34;&#34;
+    vals = [float(nested_dic[key][key1][key2]) for key in nested_dic.keys()]
+
+    return vals
+
+
+def get_modal_col_vals(df, cols=[&#39;objectName&#39;,
+                                 &#39;valid&#39;, &#39;id&#39;, &#39;coordinateUnit&#39;]):
+    &#34;&#34;&#34;
+    Returns most common values for select DataFrame columns as dict.
+    &#34;&#34;&#34;
+    cols_vals = {col: statistics.mode(df[col]) for col in cols}
+
+    return cols_vals
+
+
+def zip_lists(list_a, list_b, list_c,
+              key1=&#39;treatment&#39;, key2=&#39;begin_treatment&#39;):
+    &#34;&#34;&#34;
+    Appends multiple lists into a nested dictionary.
+    &#34;&#34;&#34;
+    res = {a:{key1: b, key2: c} for a, b, c in zip(list_a, list_b, list_c)}
+    
+    return res
+
+
+def get_vals_above_thresh(df, col, thresh):
+    &#34;&#34;&#34;
+    Returns number of rows of a DataFrame where values in selective 
+    column exceed thresh as a percentage
+    &#34;&#34;&#34;
+    return df[df[col] &gt;= thresh]
+
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="libratools.lbt_utils.add_nested_vals_to_dict"><code class="name flex">
+<span>def <span class="ident">add_nested_vals_to_dict</span></span>(<span>dic1, dic2, key3='metadata', keys2=['treatment', 'begin_treatment'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add values from one nested dictionary to another.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_nested_vals_to_dict(dic1, dic2, key3=&#39;metadata&#39;, 
+                            keys2=[&#39;treatment&#39;, &#39;begin_treatment&#39;]):
+    &#34;&#34;&#34;
+    Add values from one nested dictionary to another.
+    &#34;&#34;&#34;
+    for key1 in dic1.keys():
+        for key2 in keys2:
+            dic1[key1][key3][key2] = dic2[key1][key2]
+
+    return dic1</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.aggregate_segments"><code class="name flex">
+<span>def <span class="ident">aggregate_segments</span></span>(<span>dfs, time_interval=40, save_trajectory=False, metadata=[''], file_name='', suffix='_processed', save_msg=True, outdir='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns DataFrame of aggregated segments, individual DataFrames, optionally
+saving combined file to disk using index as reference column to maintain
+global FRAME count.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dataframes</code></strong> :&ensp;<code>dict</code></dt>
+<dd>DataFrames of each segment.</dd>
+<dt><strong><code>time_interval</code></strong> :&ensp;<code>int</code>, default=<code>40</code></dt>
+<dd>modal time interval.</dd>
+<dt><strong><code>save_trajectory</code></strong> :&ensp;<code>bool</code>, default=<code>True</code></dt>
+<dd>if save_trajectory=True, aggregated
+CSV file is saved to disk.</dd>
+</dl>
+<p>metadata (list, default=['']): list of strings to prepend to CSV file
+if saved to disk.
+outdir (str, default='.'): path of directory where to save aggregated
+file, default is current working directory.
+file_name (str, default=''): file name.
+suffix (str, default='_processed'): suffix to add to the end of file
+when saving.</p>
+<h2 id="returns">Returns</h2>
+<p>Dict of aggregated DataFrame and list of metadata</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def aggregate_segments(dfs, time_interval=40, save_trajectory=False,
+                       metadata=[&#39;&#39;], file_name=&#39;&#39;, suffix=&#39;_processed&#39;,
+                       save_msg=True, outdir=&#39;&#39;):
+    &#34;&#34;&#34;
+    Returns DataFrame of aggregated segments, individual DataFrames, optionally
+    saving combined file to disk using index as reference column to maintain
+    global FRAME count.
+
+    Args:
+        dataframes (dict): DataFrames of each segment.
+        time_interval (int, default=40): modal time interval.
+        save_trajectory (bool, default=True): if save_trajectory=True, aggregated
+            CSV file is saved to disk.
+        metadata (list, default=[&#39;&#39;]): list of strings to prepend to CSV file
+            if saved to disk.
+        outdir (str, default=&#39;.&#39;): path of directory where to save aggregated
+            file, default is current working directory.
+        file_name (str, default=&#39;&#39;): file name.
+        suffix (str, default=&#39;_processed&#39;): suffix to add to the end of file
+            when saving.
+    Returns:
+        Dict of aggregated DataFrame and list of metadata
+    &#34;&#34;&#34;
+    all_dfs = {}
+    dropped_frames_counter = 0
+    MillisecsByFPS_counter = 0
+    # load CSV and append to list with segment file name as new column
+    for segment in dfs.keys():
+        # create new local FRAME column
+        dfs[segment][&#39;data&#39;].insert(
+            loc=1, column=&#39;localFRAME&#39;, value=dfs[segment][&#39;data&#39;].index)
+        # set FRAME as index to maintain cumulative count when concatenating
+        dfs[segment][&#39;data&#39;].set_index(&#39;FRAME&#39;, inplace=True)
+        # create new column which stores video chunk segment number
+        dfs[segment][&#39;data&#39;][&#39;chunk_segment&#39;] = segment
+        # add last MillisecsByFPS value to counter to maintain cumulative count
+        if segment == list(dfs.keys())[0]:
+            last_MillisecsByFPS_val = dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;].iloc[-1]
+            # add time_interval as MillisecsByFPS starts at 0l
+            MillisecsByFPS_counter += (last_MillisecsByFPS_val + time_interval)
+            # add 0 to first row of first segment
+            dfs[segment][&#39;data&#39;].at[0, &#39;MillisecsBetweenFRAMES&#39;] = 0
+        else:
+            last_MillisecsByFPS_val = dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;].iloc[-1]
+            # skip first segment when adding MillisecsByFPS_counter
+            dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;] = dfs[segment][&#39;data&#39;][&#39;MillisecsByFPS&#39;] + \
+                MillisecsByFPS_counter
+            MillisecsByFPS_counter += (last_MillisecsByFPS_val + time_interval)
+            # add time_interval to first row of subsequent segments
+            dfs[segment][&#39;data&#39;].at[0, &#39;MillisecsBetweenFRAMES&#39;] = time_interval
+        all_dfs[segment] = {&#39;data&#39;: dfs[segment][&#39;data&#39;]}
+        dropped_frames_counter += dfs[segment][&#39;metadata&#39;][&#39;dropped_frames&#39;]
+
+    # aggregate DataFrames and insert global FRAME as a separate column
+    list_of_dfs = [all_dfs[i][&#39;data&#39;] for i in all_dfs.keys()]
+    aggregate_df = pd.concat(list_of_dfs, ignore_index=True)
+    aggregate_df.insert(loc=0, column=&#39;FRAME&#39;, value=aggregate_df.index)
+    aggregate_df.rename(columns={&#39;FRAME&#39;: &#39;globalFRAME&#39;}, inplace=True)
+
+    # clean metadata by removing comment chars
+    metadata_clean = [i.split(&#39;#&#39;)[1].strip() for i in metadata]
+
+    # add dropped frames, missing values count and metdata to dict
+    aggregate_data_metadata_df = {
+        &#39;data&#39;: aggregate_df,
+        &#39;metadata&#39;:{
+             &#39;source_name&#39;: metadata_clean[0],
+             &#39;source_fps&#39;: metadata_clean[1],
+             &#39;generation_time&#39;: metadata_clean[2],
+             &#39;dropped_frames&#39;: dropped_frames_counter},
+    }
+
+    # save aggregated DataFrame to disk as CSV and/or return for preprocessing
+    if save_trajectory is True:
+        # drop video chunk number from file name
+        lbt_datasets.save_trajectory_to_csv(
+            aggregate_df, metadata=metadata, f_name=file_name,
+            outdir=outdir, suffix=suffix, save_msg=save_msg)
+
+    return aggregate_data_metadata_df</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.convert_milliseconds"><code class="name flex">
+<span>def <span class="ident">convert_milliseconds</span></span>(<span>ms)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts milliseconds to seconds, minutes, hours, and days.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ms</code></strong> :&ensp;<code>float</code></dt>
+<dd>value in milliseconds.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>MillisecsBySecsMinsHrs (list): ms in seconds, minutes, hours, days.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_milliseconds(ms):
+    &#34;&#34;&#34;
+    Converts milliseconds to seconds, minutes, hours, and days.
+
+    Args:
+        ms (float): value in milliseconds.
+
+    Returns:
+        MillisecsBySecsMinsHrs (list): ms in seconds, minutes, hours, days.
+    &#34;&#34;&#34;
+    secs = ms / 1000.0
+    mins = secs / 60.0
+    hrs = mins / 60.
+    MillisecsBySecsMinsHrsDays = {
+        &#39;secs&#39;: secs, &#39;mins&#39;: mins, &#39;hrs&#39;: hrs, &#39;days&#39;: days
+    }
+
+    return MillisecsBySecsMinsHrs</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.convert_seconds"><code class="name flex">
+<span>def <span class="ident">convert_seconds</span></span>(<span>s)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts seconds to minutes and hours.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>s</code></strong> :&ensp;<code>float</code></dt>
+<dd>value in seconds.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>mins (float): s in minutes
+hrs (float): s in hours.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_seconds(s):
+    &#34;&#34;&#34;
+    Converts seconds to minutes and hours.
+    
+    Args:
+        s (float): value in seconds.
+        
+    Returns:
+        mins (float): s in minutes
+        hrs (float): s in hours.   
+    &#34;&#34;&#34;
+    mins = s / 60
+    hrs = s / 3600
+    
+    return mins, hrs</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.count_dropped_frames"><code class="name flex">
+<span>def <span class="ident">count_dropped_frames</span></span>(<span>x)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns number of NaN frames in provided array along.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def count_dropped_frames(x):
+    &#34;&#34;&#34;
+    Returns number of NaN frames in provided array along.
+    &#34;&#34;&#34;
+    x_arr = np.array(x)
+    num_nans = np.count_nonzero(np.isnan(x_arr))
+
+    return num_nans</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.count_missing_values"><code class="name flex">
+<span>def <span class="ident">count_missing_values</span></span>(<span>df, cols, idxs=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of rows with missing values for each provided
+column of a DataFrame as well as the total number for all columns.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>pandas DataFrame.</dd>
+<dt><strong><code>cols</code></strong> :&ensp;<code>list</code></dt>
+<dd>pandas DataFrame columns to check for missing row values.</dd>
+<dt><strong><code>idxs</code></strong> :&ensp;<code>bool</code>, default=<code>False</code></dt>
+<dd>if idxs=True, the index for each row is
+also returned.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A dict of column name as the key and a tuple of the number of
+misssing rows and the index for each row as values.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def count_missing_values(df, cols, idxs=False):
+    &#34;&#34;&#34;
+    Returns the number of rows with missing values for each provided
+    column of a DataFrame as well as the total number for all columns.
+
+    Args:
+        df (DataFrame): pandas DataFrame.
+        cols (list): pandas DataFrame columns to check for missing row values.
+        idxs (bool, default=False): if idxs=True, the index for each row is
+            also returned.
+
+    Returns:
+        A dict of column name as the key and a tuple of the number of
+            misssing rows and the index for each row as values.
+    &#34;&#34;&#34;
+    na_rows = {}
+
+    # collect the total number of missing rows and row index
+    missing_val_idxs = list(df.index[df.isna().any(axis=1)])
+    if len(missing_val_idxs) &gt; 0:
+        na_rows[&#39;total_nans_across_cols&#39;] = df.isna().values.sum()
+    else:
+        na_rows[&#39;total_nans_across_cols&#39;] = 0
+
+    # collect the number of missing rows and row index for each column
+    for col in list(cols):
+        col_name = col + &#39;_nans&#39;
+        missing_val_idxs = df[df[col].isnull()].index.tolist()
+        if len(missing_val_idxs) &gt; 0:
+            na_rows[col_name] = len(missing_val_idxs)
+            if idxs is True:
+                na_rows[col_name + &#39;_idxs&#39;] = missing_val_idxs
+        else:
+            na_rows[col_name] = 0
+
+    return na_rows</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.drop_missing_coord_vals"><code class="name flex">
+<span>def <span class="ident">drop_missing_coord_vals</span></span>(<span>df, cols=['x', 'y', 'rad', 'deg', 'xpx', 'ypx'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns DataFrame after dropping NaN values in select columns with
+index reset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def drop_missing_coord_vals(df, cols=[&#39;x&#39;, &#39;y&#39;, &#39;rad&#39;,
+                                      &#39;deg&#39;, &#39;xpx&#39;, &#39;ypx&#39;]):
+    &#34;&#34;&#34;
+    Returns DataFrame after dropping NaN values in select columns with
+    index reset.
+    &#34;&#34;&#34;
+    df.dropna(subset=cols, how=&#39;all&#39;, inplace=True)
+
+    return df</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.get_date"><code class="name flex">
+<span>def <span class="ident">get_date</span></span>(<span>string=True, delta=0, date_format='%Y%m%d')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns date for which to preprocess CSV files generated by BioTracker, the
+default behavior is to return today's date as a 'YYYYMMDD' string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>bool</code>, default=<code>True</code></dt>
+<dd>if string=True, datetime object is
+returned as a string.</dd>
+<dt><strong><code>delta</code></strong> :&ensp;<code>int</code>, default=<code>0</code></dt>
+<dd>number of days to add or subtract to current
+date to get desired date, if default=0 current date is returned.</dd>
+</dl>
+<p>date_format (str, default='%Y%m%d'): format for datetime string, if
+default='%Y%m%d' date will be in the form 'YYYMMMDD'.</p>
+<h2 id="returns">Returns</h2>
+<p>date (datetime or str).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_date(string=True, delta=0, date_format=&#39;%Y%m%d&#39;):
+    &#34;&#34;&#34;
+    Returns date for which to preprocess CSV files generated by BioTracker, the
+    default behavior is to return today&#39;s date as a &#39;YYYYMMDD&#39; string.
+
+    Args:
+        string (bool, default=True): if string=True, datetime object is
+            returned as a string.
+        delta (int, default=0): number of days to add or subtract to current
+            date to get desired date, if default=0 current date is returned.
+        date_format (str, default=&#39;%Y%m%d&#39;): format for datetime string, if
+            default=&#39;%Y%m%d&#39; date will be in the form &#39;YYYMMMDD&#39;.
+
+    Returns:
+        date (datetime or str).
+    &#34;&#34;&#34;
+    date = datetime.datetime.now() + datetime.timedelta(delta)
+    if string:
+        return date.strftime(f&#39;{date_format}&#39;)
+    else:
+        return date</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.get_modal_col_vals"><code class="name flex">
+<span>def <span class="ident">get_modal_col_vals</span></span>(<span>df, cols=['objectName', 'valid', 'id', 'coordinateUnit'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns most common values for select DataFrame columns as dict.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_modal_col_vals(df, cols=[&#39;objectName&#39;,
+                                 &#39;valid&#39;, &#39;id&#39;, &#39;coordinateUnit&#39;]):
+    &#34;&#34;&#34;
+    Returns most common values for select DataFrame columns as dict.
+    &#34;&#34;&#34;
+    cols_vals = {col: statistics.mode(df[col]) for col in cols}
+
+    return cols_vals</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.get_nested_dict_values"><code class="name flex">
+<span>def <span class="ident">get_nested_dict_values</span></span>(<span>nested_dic, key1='metadata', key2='activity')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns list of values as floats for select key of a nested dictionary.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nested_dict_values(nested_dic, key1=&#39;metadata&#39;, key2=&#39;activity&#39;):
+    &#34;&#34;&#34;
+    Returns list of values as floats for select key of a nested dictionary.
+    &#34;&#34;&#34;
+    vals = [float(nested_dic[key][key1][key2]) for key in nested_dic.keys()]
+
+    return vals</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.get_vals_above_thresh"><code class="name flex">
+<span>def <span class="ident">get_vals_above_thresh</span></span>(<span>df, col, thresh)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns number of rows of a DataFrame where values in selective
+column exceed thresh as a percentage</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_vals_above_thresh(df, col, thresh):
+    &#34;&#34;&#34;
+    Returns number of rows of a DataFrame where values in selective 
+    column exceed thresh as a percentage
+    &#34;&#34;&#34;
+    return df[df[col] &gt;= thresh]</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    pass</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.partition_segment"><code class="name flex">
+<span>def <span class="ident">partition_segment</span></span>(<span>df, time_series, segment_num, cols=['x', 'y'], thresh=5, unit='seconds', segment_limit=2, data_loss_limit=0.5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns or discards dataset using the following decision rule:
+if more than 50% (default value) of recording is in tact in no more
+than 2 (default value) continuous segments the dataset is deemed worth using
+and is kept. Continuous is defined by default as 'no time interval gap
+between consecutive frames greater than 5 seconds (5000 milliseconds)'.
+If the dataset is split, a list of dataframes is returned, if discarded,
+None is returned.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>pandas DataFrame containing time stamps.</dd>
+<dt><strong><code>time_series</code></strong> :&ensp;<code>Series</code></dt>
+<dd>list of values containing time stamps/frame value.</dd>
+<dt><strong><code>cols</code></strong> :&ensp;<code>list</code></dt>
+<dd>pandas DataFrame columns to check for missing row values.</dd>
+<dt><strong><code>missing_vals</code></strong> :&ensp;<code>list</code></dt>
+<dd>number of missing rows for key columns.</dd>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>threshold for deciding when to create
+new DataFrame based on change in time interval value.</dd>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code>, default=<code>seconds</code></dt>
+<dd>time unit for thresh value.</dd>
+<dt><strong><code>segment_limit</code></strong> :&ensp;<code>int</code>, default=<code>4</code></dt>
+<dd>maximum number of continuous blocks.</dd>
+<dt><strong><code>data_loss_limit</code></strong> :&ensp;<code>float</code>, default=<code>0.5</code></dt>
+<dd>threshold that determines maximum
+amount of data loss permitted before a dataset is discarded.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>DataFrames and number of DataFrames as integer.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def partition_segment(df, time_series, segment_num, cols=[&#39;x&#39;, &#39;y&#39;], thresh=5,
+                      unit=&#39;seconds&#39;, segment_limit=2, data_loss_limit=0.5):
+    &#34;&#34;&#34;
+    Returns or discards dataset using the following decision rule:
+    if more than 50% (default value) of recording is in tact in no more
+    than 2 (default value) continuous segments the dataset is deemed worth using
+    and is kept. Continuous is defined by default as &#39;no time interval gap
+    between consecutive frames greater than 5 seconds (5000 milliseconds)&#39;.
+    If the dataset is split, a list of dataframes is returned, if discarded,
+    None is returned.
+
+    Args:
+        df (DataFrame): pandas DataFrame containing time stamps.
+        time_series (Series): list of values containing time stamps/frame value.
+        cols (list): pandas DataFrame columns to check for missing row values.
+        missing_vals (list): number of missing rows for key columns.
+        thresh (int, default=5): threshold for deciding when to create
+            new DataFrame based on change in time interval value.
+        unit (str, default=seconds): time unit for thresh value.
+        segment_limit (int, default=4): maximum number of continuous blocks.
+        data_loss_limit (float, default=0.5): threshold that determines maximum 
+            amount of data loss permitted before a dataset is discarded.
+    Returns:
+        DataFrames and number of DataFrames as integer.
+    &#34;&#34;&#34;
+    if unit == &#39;seconds&#39;:
+        thresh_val = thresh * 1000
+    elif unit == &#39;milliseconds&#39;:
+        pass
+    else:
+        ValueError(&#34;Time unit must be in seconds or milliseconds.&#34;)
+
+    # compute number of missing vals then drop these rows from a dummy df
+    nan_percent = (df[cols].isnull().sum() / len(df)).sum()
+    temp_df = df.copy()
+    temp_df.dropna(inplace=True)
+
+    # compute time change between frames and create new column
+    temp_df[&#39;MillisecsBetweenFRAMES&#39;] = (time_series - time_series.shift())
+
+    # append a new DataFrame when time interval value exceeds threshold
+    temp_dfs = {}
+    for _, g in temp_df.groupby((temp_df.MillisecsBetweenFRAMES.diff() 
+                                 &gt; thresh_val).cumsum()):
+        temp_dfs[_] = g
+
+    dfs = {}
+    # implement decision rule to decide whether to keep dataset
+    if len(temp_dfs.keys()) &gt; segment_limit and nan_percent &lt;= data_loss_limit:
+        print(f&#39;Skipped segment {segment_num}, segment limit surpassed.&#39;)
+        return dfs, 0
+    elif len(temp_dfs.keys()) &lt;= segment_limit and nan_percent &gt; data_loss_limit:
+        print(f&#39;Skipped segment {segment_num}, data loss limit surpassed.&#39;)
+        return dfs, 0
+    elif len(temp_dfs.keys()) &gt; segment_limit and nan_percent &gt; data_loss_limit:
+        print(f&#39;Skipped segment {segment_num}, data loss and segment limit surpassed.&#39;)
+        return dfs, 0
+    else:
+        df[&#39;MillisecsBetweenFRAMES&#39;] = (time_series-time_series.shift())
+        # return original DataFrame with nans
+        for _, g in df.groupby((df.MillisecsBetweenFRAMES.diff() &gt; thresh_val).cumsum()):
+            dfs[_] = g
+        # return dfs and number of dfs for indexing
+        num_dfs = len(dfs.keys())
+
+        return dfs, num_dfs</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.split_series_on_datestr"><code class="name flex">
+<span>def <span class="ident">split_series_on_datestr</span></span>(<span>df, col, HH='', MM='', SS='', YYYYMMDD='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Split pandas.DataFrame into two on the basis of value in a column with
+datetime values using 'YYYY-MM-DD HH:MM:SS'</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>dataframe to split.</dd>
+<dt><strong><code>col</code></strong> :&ensp;<code>pandas.Series</code></dt>
+<dd>column to split on.</dd>
+</dl>
+<p>HH (str, default=''): hour value in 24-hour clock format.
+MM (str, default=''): minute value.
+SS (str, default=''): second value.</p>
+<h2 id="returns">Returns</h2>
+<p>df_split (pandas.DataFrame)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def split_series_on_datestr(df, col, HH=&#39;&#39;, MM=&#39;&#39;, SS=&#39;&#39;, YYYYMMDD=&#39;&#39;):
+    &#34;&#34;&#34;
+    Split pandas.DataFrame into two on the basis of value in a column with
+    datetime values using &#39;YYYY-MM-DD HH:MM:SS&#39;
+    
+    Args:
+        df (pandas.DataFrame): dataframe to split.
+        col (pandas.Series): column to split on.
+        HH (str, default=&#39;&#39;): hour value in 24-hour clock format. 
+        MM (str, default=&#39;&#39;): minute value.
+        SS (str, default=&#39;&#39;): second value.
+        
+    Returns:
+        df_split (pandas.DataFrame)
+    &#34;&#34;&#34;
+    yyyy = YYYYMMDD[:4]
+    mm = YYYYMMDD[4:6]
+    dd = YYYYMMDD[-2:]
+    if YYYYMMDD == &#39;&#39;:
+        yyyymmdd = str(df[col][0].to_period(&#39;D&#39;))
+
+    ts = f&#39;{yyyymmdd} {HH}:{MM}:{SS}&#39;
+    split_ts = datetime.datetime.strptime(ts, &#39;%Y-%m-%d %H:%M:%S&#39;)
+    
+    df_split = df.loc[df[col] &gt; split_ts]
+    
+    return df_split</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.strlist_to_intlist"><code class="name flex">
+<span>def <span class="ident">strlist_to_intlist</span></span>(<span>strlist)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns list of strings as list of ints.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def strlist_to_intlist(strlist):
+    &#34;&#34;&#34;
+    Returns list of strings as list of ints.
+    &#34;&#34;&#34;
+    try:
+        intlist = [int(i) for i in strlist]
+        return intlist
+    except ValueError:
+        print(&#39;The list argument does not exclusively contain numbers.&#39;)</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.strptime_date_arg"><code class="name flex">
+<span>def <span class="ident">strptime_date_arg</span></span>(<span>date)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns string as foramtted datetime object using the regex format:
+%Y-%M-%d (%a) where string is expected to be in the format YYYYMMDD.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def strptime_date_arg(date):
+    &#34;&#34;&#34;
+    Returns string as foramtted datetime object using the regex format:
+    %Y-%M-%d (%a) where string is expected to be in the format YYYYMMDD.
+    &#34;&#34;&#34;
+    try:
+        int(date)
+    except ValueError:
+        print(f&#39;{date} does not exclusively contain integers.&#39;)
+    try:
+        _ = datetime.datetime.strptime(date, &#39;%Y%M%d&#39;)
+        datetime_obj = _.strftime(&#39;%Y-%M-%d&#39;)
+        return datetime_obj
+    except ValueError:
+        print(f&#39;{date} is not in the format YYYYMMDD.&#39;)</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.sum_dict_vals"><code class="name flex">
+<span>def <span class="ident">sum_dict_vals</span></span>(<span>dic, keys=['x_nans', 'y_nans', 'globalFRAME'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns maximum value of values for selective keys of a dictionary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dic</code></strong> :&ensp;<code>dict</code></dt>
+<dd>dict to iterate through.</dd>
+</dl>
+<p>keys (list, default=['x_nans', 'y_nans',]): keys to iteratve
+over.</p>
+<h2 id="returns">Returns</h2>
+<p>val (int): maximum value</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sum_dict_vals(dic, keys=[&#39;x_nans&#39;, &#39;y_nans&#39;, &#39;globalFRAME&#39;]):
+    &#34;&#34;&#34;
+    Returns maximum value of values for selective keys of a dictionary.
+
+    Args:
+        dic (dict): dict to iterate through.
+        keys (list, default=[&#39;x_nans&#39;, &#39;y_nans&#39;,]): keys to iteratve 
+            over.
+
+    Returns:
+        val (int): maximum value
+    &#34;&#34;&#34;
+    val = max([dic[key] for key in dic.keys() if key in keys])
+
+    return val</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.to_local_datetime"><code class="name flex">
+<span>def <span class="ident">to_local_datetime</span></span>(<span>utc_dt)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts from utc datetime to a locally aware datetime according
+to the host timezone.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>utc_dt</code></strong> :&ensp;<code>datetime.datetime</code></dt>
+<dd>utc datetime object.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>local timezone datetime</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_local_datetime(utc_dt):
+    &#34;&#34;&#34;
+    Converts from utc datetime to a locally aware datetime according
+    to the host timezone.
+    
+    Args:
+        utc_dt (datetime.datetime): utc datetime object.
+    
+    Returns:
+        local timezone datetime
+    &#34;&#34;&#34;
+    try:
+        return datetime.datetime.fromtimestamp(calendar.timegm(utc_dt.timetuple()))
+    except ValueError:
+        print(&#39;respective loopbio array missing frame_time value&#39;)
+        return None</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.unixtime_to_strtime"><code class="name flex">
+<span>def <span class="ident">unixtime_to_strtime</span></span>(<span>ut, str_format='%Y-%m-%d %H:%M:%S.%f')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns unix time object in datetime formatted string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ut</code></strong> :&ensp;<code>float</code></dt>
+<dd>unix time stamp.</dd>
+</dl>
+<p>str_format(str, default='%Y-%m-%d %H:%M:%S.%f'): format
+for datetime object.</p>
+<h2 id="returns">Returns</h2>
+<p>ts_formatted (datetime.datetime)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unixtime_to_strtime(ut, str_format=&#39;%Y-%m-%d %H:%M:%S.%f&#39;):
+    &#34;&#34;&#34;
+    Returns unix time object in datetime formatted string.
+
+    Args:
+        ut (float): unix time stamp.
+        str_format(str, default=&#39;%Y-%m-%d %H:%M:%S.%f&#39;): format
+            for datetime object.
+
+    Returns:
+        ts_formatted (datetime.datetime)
+    &#34;&#34;&#34;
+    ts = float(ut)
+    try:
+        ts = datetime.datetime.utcfromtimestamp(ts)
+        ts = ts.strftime(f&#39;{str_format}&#39;)
+        return ts
+    except ValueError:
+        print(&#39;Unix time stamp must be in seconds, not milliseconds.&#39;)</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.update_setup"><code class="name flex">
+<span>def <span class="ident">update_setup</span></span>(<span>dic, new_vals)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Appends dictionary values to existing dictionary.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_setup(dic, new_vals):
+    &#34;&#34;&#34;
+    Appends dictionary values to existing dictionary.
+    &#34;&#34;&#34;
+    for k, v in new_vals.items():
+        dic[k].append(v)
+
+    return dic</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.validate_date_arg"><code class="name flex">
+<span>def <span class="ident">validate_date_arg</span></span>(<span>date, date_format='YYYYMMDD')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Validates date string is in format YYYYMMDD, prints error message
+if not.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>date</code></strong> :&ensp;<code>str</code></dt>
+<dd>date to validate.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_date_arg(date, date_format=&#39;YYYYMMDD&#39;):
+    &#34;&#34;&#34;
+    Validates date string is in format YYYYMMDD, prints error message
+    if not.
+
+    Args:
+        date (str): date to validate.
+    &#34;&#34;&#34;
+    try:
+        datetime.datetime.strptime(date, &#39;%Y%m%d&#39;)
+    except ValueError:
+        raise ValueError(f&#39;Incorrect date argument, expected: {date_format}&#39;)</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_utils.zip_lists"><code class="name flex">
+<span>def <span class="ident">zip_lists</span></span>(<span>list_a, list_b, list_c, key1='treatment', key2='begin_treatment')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Appends multiple lists into a nested dictionary.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def zip_lists(list_a, list_b, list_c,
+              key1=&#39;treatment&#39;, key2=&#39;begin_treatment&#39;):
+    &#34;&#34;&#34;
+    Appends multiple lists into a nested dictionary.
+    &#34;&#34;&#34;
+    res = {a:{key1: b, key2: c} for a, b, c in zip(list_a, list_b, list_c)}
+    
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="libratools" href="index.html">libratools</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="libratools.lbt_utils.add_nested_vals_to_dict" href="#libratools.lbt_utils.add_nested_vals_to_dict">add_nested_vals_to_dict</a></code></li>
+<li><code><a title="libratools.lbt_utils.aggregate_segments" href="#libratools.lbt_utils.aggregate_segments">aggregate_segments</a></code></li>
+<li><code><a title="libratools.lbt_utils.convert_milliseconds" href="#libratools.lbt_utils.convert_milliseconds">convert_milliseconds</a></code></li>
+<li><code><a title="libratools.lbt_utils.convert_seconds" href="#libratools.lbt_utils.convert_seconds">convert_seconds</a></code></li>
+<li><code><a title="libratools.lbt_utils.count_dropped_frames" href="#libratools.lbt_utils.count_dropped_frames">count_dropped_frames</a></code></li>
+<li><code><a title="libratools.lbt_utils.count_missing_values" href="#libratools.lbt_utils.count_missing_values">count_missing_values</a></code></li>
+<li><code><a title="libratools.lbt_utils.drop_missing_coord_vals" href="#libratools.lbt_utils.drop_missing_coord_vals">drop_missing_coord_vals</a></code></li>
+<li><code><a title="libratools.lbt_utils.get_date" href="#libratools.lbt_utils.get_date">get_date</a></code></li>
+<li><code><a title="libratools.lbt_utils.get_modal_col_vals" href="#libratools.lbt_utils.get_modal_col_vals">get_modal_col_vals</a></code></li>
+<li><code><a title="libratools.lbt_utils.get_nested_dict_values" href="#libratools.lbt_utils.get_nested_dict_values">get_nested_dict_values</a></code></li>
+<li><code><a title="libratools.lbt_utils.get_vals_above_thresh" href="#libratools.lbt_utils.get_vals_above_thresh">get_vals_above_thresh</a></code></li>
+<li><code><a title="libratools.lbt_utils.main" href="#libratools.lbt_utils.main">main</a></code></li>
+<li><code><a title="libratools.lbt_utils.partition_segment" href="#libratools.lbt_utils.partition_segment">partition_segment</a></code></li>
+<li><code><a title="libratools.lbt_utils.split_series_on_datestr" href="#libratools.lbt_utils.split_series_on_datestr">split_series_on_datestr</a></code></li>
+<li><code><a title="libratools.lbt_utils.strlist_to_intlist" href="#libratools.lbt_utils.strlist_to_intlist">strlist_to_intlist</a></code></li>
+<li><code><a title="libratools.lbt_utils.strptime_date_arg" href="#libratools.lbt_utils.strptime_date_arg">strptime_date_arg</a></code></li>
+<li><code><a title="libratools.lbt_utils.sum_dict_vals" href="#libratools.lbt_utils.sum_dict_vals">sum_dict_vals</a></code></li>
+<li><code><a title="libratools.lbt_utils.to_local_datetime" href="#libratools.lbt_utils.to_local_datetime">to_local_datetime</a></code></li>
+<li><code><a title="libratools.lbt_utils.unixtime_to_strtime" href="#libratools.lbt_utils.unixtime_to_strtime">unixtime_to_strtime</a></code></li>
+<li><code><a title="libratools.lbt_utils.update_setup" href="#libratools.lbt_utils.update_setup">update_setup</a></code></li>
+<li><code><a title="libratools.lbt_utils.validate_date_arg" href="#libratools.lbt_utils.validate_date_arg">validate_date_arg</a></code></li>
+<li><code><a title="libratools.lbt_utils.zip_lists" href="#libratools.lbt_utils.zip_lists">zip_lists</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
