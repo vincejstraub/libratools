@@ -18,7 +18,7 @@ libratools does not provide functionality to label trajectories; it operates on 
 
 The package functions are conveniently documented at the package website: https://vincejstraub.github.io/tools-libratools/.
 
-For more information see the projec [Wiki](https://github.com/vincejstraub/tools-libratools/wiki). 
+For more information see the project [Wiki](https://github.com/vincejstraub/tools-libratools/wiki). 
 
 ## User Agreement
 
