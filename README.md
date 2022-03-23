@@ -22,7 +22,7 @@ For more information see the project [Wiki](https://github.com/vincejstraub/tool
 
 ## License
 
-This project is licensed under a MIT License; see LICENSE.txt for details. By downloading libratools you agree with the following points: libratools is provided without any warranty or conditions of any kind. We assume no responsibility for errors or omissions in the results and interpretations following from application of libratools.
+This project is licensed under a MIT License; see [LICENSE.txt](https://github.com/vincejstraub/tools-libratools/blob/main/LICENSE) for details. By downloading libratools you agree with the following points: libratools is provided without any warranty or conditions of any kind. We assume no responsibility for errors or omissions in the results and interpretations following from application of libratools.
 
 ## Contributing
 
