@@ -14,7 +14,7 @@ libratools does not provide functionality to label trajectories; it operates on 
 
  $ `pip install -e . --user.` 
 
-## Package documentation
+## Documentation
 
 The package functions are conveniently documented at the package website: https://vincejstraub.github.io/tools-libratools/.
 
