@@ -8,3 +8,16 @@ libratools does not provide functionality to label trajectories; it operates on 
 The package can be installed from GitHub using:
 
  $ `pip install -e . --user.` 
+ 
+ ## How to use libratools 
+
+libratools is itself made up of several modules which each contain specific functions to handle tasks associated with loading, pre-processing, and post-processing trajectories. These can be contained in one or more scripts to handle pre-processing and post-processing tasks. For a detailed overview of each function, see the module's subpage.
+
+
+## Questions or suggestions?
+
+libratools is an open-sourced project, we welcome users to reach out with suggestions to improve the source code and encourage contributions.
+
+Please read [CONTRIBUTING.md](https://github.com/vincejstraub/developing-exploration-behavior/blob/master/.github/CONTRIBUTING.md) for details on code conventions, and the process for submitting changes via pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+Other enquiries about contributing and general questions can be sent to: vincejstraub@gmail.com
