@@ -18,10 +18,6 @@ __email__ = "vincejstraub@gmail.com"
 __status__ = "Testing"
 
 
-def main():
-    pass
-
-
 def get_step_len(x, y):
     """
     Returns step length (size), the displacement between two consecutive
@@ -153,7 +149,3 @@ def get_absoloute_turn_angle(trajectory, step_col='stepLength', unit="degrees", 
     angle.name = "angle"
     
     return angle
-
-
-if __name__ == '__main__':
-    main()
