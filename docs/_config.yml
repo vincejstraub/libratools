@@ -1,4 +1,6 @@
 theme: jekyll-theme-cayman
 title: libratools
-description: A python library to process animal movement trajectories \n in the form of a series of locations (as x, y coordinates) with times.
+description: > 
+  A Python package for processing animal movement trajectories 
+  in the form of a series of locations (as x, y coordinates) with times.
 
