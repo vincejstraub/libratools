@@ -21,10 +21,6 @@ __email__ = "vincejstraub@gmail.com"
 __status__ = "Testing"
 
 
-def main():
-    pass
-
-
 def count_dropped_frames(x):
     """
     Returns number of NaN frames in provided array along.
@@ -490,7 +486,3 @@ def get_vals_above_thresh(df, col, thresh):
     column exceed thresh as a percentage
     """
     return df[df[col] >= thresh]
-
-
-if __name__ == '__main__':
-    main()
