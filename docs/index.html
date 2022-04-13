@@ -1,0 +1,93 @@
+---
+layout: default
+---
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title"><code>libratools</code></h1>
+</header>
+<div class="desc"><p> libratools is a Python package to process animal movement trajectories in the form of a series of locations (as x, y coordinates) with times. It is designed primarily for quantitative biology research projects that involve processing high-throughput tracking data.</p> <p>libratools does not provide functionality to label trajectories; it operates on existing trajectories which are sequences of (x, y, time) coordinates. It can be used with any x, y, times data but is specifically built for trajectories collected using the <a href="http://loopbio.com/recording/">loopbio motif video recording system</a> and labelled with <a href="https://github.com/BioroboticsLab/biotracker_core">BioTracker</a>, a computer vision framework for visual animal tracking. It does, however, provide some functionality to generate random trajectories for simulation or testing of analyses.</p>
+<h2 class="section-title">Installation and Setup</h2> 
+<p>The package can be installed from GitHub using:</p>
+<p><code>$ pip install -e . --user.</code></p>
+</p><h2 class="section-title">How to use libratools</h2> 
+<p>libratools is itself made up of several modules which each contain specific functions to handle tasks associated with loading, pre-processing, and post-processing trajectories. These can be combined in one or more scripts to handle pre-processing and post-processing tasks. For a detailed overview of each function, see each sub-module's page.</p>
+<h2 class="section-title">Questions or suggestions?</h2> 
+<p> libratools is an open-source project, users are welcome to reach out with suggestions to improve the source code and encourage contributions.</p>
+<p>Please read <a href="https://github.com/vincejstraub/developing-exploration-behavior/blob/master/.github/CONTRIBUTING.md">CONTRIBUTING.md</a> for details on code conventions, and the process for submitting changes via pull requests. For major changes, please open an issue first to discuss what you would like to change.</p>
+</div>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="libratools.lbt_datasets" href="lbt_datasets.html">libratools.lbt_datasets</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_datasets module includes utilities to load, manipulate
+and save trajectory datasets.</p></div>
+</dd>
+<dt><code class="name"><a title="libratools.lbt_experiment" href="lbt_experiment.html">libratools.lbt_experiment</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_experiment module contains functions related to various
+experimental procedures, such as defining and assigning a treatment value.</p></div>
+</dd>
+<dt><code class="name"><a title="libratools.lbt_impute" href="lbt_impute.html">libratools.lbt_impute</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_impute module includes methods for detecting and imputing
+missing values.</p></div>
+</dd>
+<dt><code class="name"><a title="libratools.lbt_inspect" href="lbt_inspect.html">libratools.lbt_inspect</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_inspect module includes functions for inspecting a trajectory
+dataset.</p></div>
+</dd>
+<dt><code class="name"><a title="libratools.lbt_metrics" href="lbt_metrics.html">libratools.lbt_metrics</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_metrics module includes performance metrics, pairwise metrics
+and distance computations to summarize a dataset.</p></div>
+</dd>
+<dt><code class="name"><a title="libratools.lbt_outlier_detection" href="lbt_outlier_detection.html">libratools.lbt_outlier_detection</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_outlier_detection module includes methods for detecting
+point and subsequence outliers.</p></div>
+</dd>
+<dt><code class="name"><a title="libratools.lbt_utils" href="lbt_utils.html">libratools.lbt_utils</a></code></dt>
+<dd>
+<div class="desc"><p>The libratools.lbt_utils module includes various utilities and private
+functions.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Documentation</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="libratools.lbt_datasets" href="lbt_datasets.html">libratools.lbt_datasets</a></code></li>
+<li><code><a title="libratools.lbt_experiment" href="lbt_experiment.html">libratools.lbt_experiment</a></code></li>
+<li><code><a title="libratools.lbt_impute" href="lbt_impute.html">libratools.lbt_impute</a></code></li>
+<li><code><a title="libratools.lbt_inspect" href="lbt_inspect.html">libratools.lbt_inspect</a></code></li>
+<li><code><a title="libratools.lbt_metrics" href="lbt_metrics.html">libratools.lbt_metrics</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection" href="lbt_outlier_detection.html">libratools.lbt_outlier_detection</a></code></li>
+<li><code><a title="libratools.lbt_utils" href="lbt_utils.html">libratools.lbt_utils</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
