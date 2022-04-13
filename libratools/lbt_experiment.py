@@ -10,8 +10,8 @@ import random    # standard library
 import datetime
 
 
-def main():
-    pass
+# def main():
+#     pass
 
 
 def get_feeding_times(activity_vals, min_time=2, max_time=180,
@@ -104,17 +104,17 @@ def get_slope_intercept_vars(p1, p2):
     return m, b
 
 
-if __name__ == '__main__':
-    # generate 12 random values for daily activity
-    activity_vals = random.sample(range(1000, 20000), 12)
-    # compute feeding times and start times based activity using defaults
-    feeding_times, feeding_start_times = get_feeding_times(activity_vals)
-    # return feeding time dict
-    treatment_dict = {x: {str(t): str(start)} for x, t, start in zip(
-        activity_vals, feeding_times, feeding_start_times)
-                     }
-    # iterate over the list of dict(s)
-    print('Activity (cm) | Feeding time | Begin treatment at}')
-    print('------------------------------------')
-    for val in treatment_dict:
-        print(val, treatment_dict[val])
+# if __name__ == '__main__':
+#     # generate 12 random values for daily activity
+#     activity_vals = random.sample(range(1000, 20000), 12)
+#     # compute feeding times and start times based activity using defaults
+#     feeding_times, feeding_start_times = get_feeding_times(activity_vals)
+#     # return feeding time dict
+#     treatment_dict = {x: {str(t): str(start)} for x, t, start in zip(
+#         activity_vals, feeding_times, feeding_start_times)
+#                      }
+#     # iterate over the list of dict(s)
+#     print('Activity (cm) | Feeding time | Begin treatment at}')
+#     print('------------------------------------')
+#     for val in treatment_dict:
+#         print(val, treatment_dict[val])
