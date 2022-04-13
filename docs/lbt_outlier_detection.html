@@ -1,0 +1,1277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>libratools.lbt_outlier_detection API documentation</title>
+<meta name="description" content="The libratools.lbt_outlier_detection module includes methods for detecting
+point and subsequence outliers." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>libratools.lbt_outlier_detection</code></h1>
+</header>
+<section id="section-intro">
+<p>The libratools.lbt_outlier_detection module includes methods for detecting
+point and subsequence outliers.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+&#34;&#34;&#34;
+The libratools.lbt_outlier_detection module includes methods for detecting
+point and subsequence outliers.
+&#34;&#34;&#34;
+
+import numpy as np     # 3rd party packages
+import pandas as pd
+
+from . import lbt_utils    # local imports
+from . import lbt_metrics
+
+
+__author__ = &#34;Vincent (Vince) J. Straub&#34;
+__email__ = &#34;vincejstraub@gmail.com&#34;
+__status__ = &#34;Testing&#34;
+
+
+def run_detection(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                  segment_col=&#39;chunk_segment&#39;, x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, 
+                  seconds=1, spike_method=&#39;interpolate&#39;, spike_seq_method=&#39;exclude&#39;,
+                  corrupt_thresh=10):
+    &#34;&#34;&#34;
+    Implements outlier detection by detecting subsequence outliers, point
+    outliers and checking whether the movement track is corrupt, i.e. a 
+    certain number of data points labelled as outliers exceed a used-defined
+    data corruption threshold.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        segment_col (str, default=&#39;chunk_segment&#39;): DataFrame column 
+            containing count of trajectory segment.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        spike_method (str, default=&#39;interpolate&#39;): method for handling spikes, 
+            can be either &#39;interpolated&#39; or &#39;keep&#39;.
+        spike_seq_method (str, default=&#39;drop&#39;): method for handling spike 
+            sequences, can be either &#39;interpolated&#39; or &#39;keep&#39;.
+        corrupt_thresh (int, default=10): the number of data points labelled
+            as outliers as a percentage of all data points that a track
+            is allowed to have, if this value is exceeded the track is
+            labelled as being likely corrupted.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;    
+    # detect point outliers or &#39;spikes&#39; and handle accordingly
+    trajectory, spike_stats = detect_spikes(
+        trajectory, step_col, frame_col, segment_col, x, y, thresh, 
+        fps, seconds, spike_method)  
+    
+    # detect subsequence outliers or &#39;prolonged spikes&#39; and handle accordingly
+    trajectory, prolonged_spike_stats = detect_spike_seqs(
+        trajectory, step_col, frame_col, x, y, thresh, 
+        fps, seconds, spike_seq_method)
+    trajectory, prolonged_spike_stats = detect_prolonged_spikes(
+        trajectory, step_col, frame_col, x, y, thresh, 
+        fps, seconds, spike_seq_method)
+    
+    # merge outlier stats
+    stats = {**prolonged_spike_stats, **spike_stats} 
+       
+    # remove spikes which are the lower or upper bound of a sequence
+    stats[&#39;spike_idxs&#39;] = [i for i in stats[
+        &#39;spike_idxs&#39;] if i not in stats[&#39;prolonged_spike_idxs&#39;]]
+            
+    # create new combined total of data points deemed to be spikes
+    stats[&#39;num_detected_spikes&#39;] = len(stats[&#39;spike_idxs&#39;])
+    stats[&#39;total_num_detected_spikes&#39;] = prolonged_spike_stats[
+          &#39;num_detected_prolonged_spikes&#39;] + stats[
+          &#39;num_detected_spikes&#39;] + stats[
+          &#39;num_expected_spikes&#39;]
+    
+    # label outlying trajectories if total number of outliers exceeds threshold
+    num_data_points = min(trajectory[[x, y]].notnull().sum())
+        
+    if (stats[&#39;total_num_detected_spikes&#39;] / num_data_points) * 100 &gt;= corrupt_thresh:
+        stats[&#39;corruption_likelihood&#39;] = &#39;positive&#39;
+    else:
+        stats[&#39;corruption_likelihood&#39;] = &#39;negative&#39;
+    
+    return trajectory, stats
+
+
+def detect_spikes(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                  segment_col=&#39;chunk_segment&#39;, x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, 
+                  seconds=1, method=&#39;interpolate&#39;):
+    &#34;&#34;&#34;
+    Removes point outliers, or spikes, from a movement track by identifying
+    locations with extreme incoming and outgoing step lengths that surpass a
+    user-defined upper threshold. Detected spikes can in turn either kept or
+    linearly interpolated.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        segment_col (str, default=&#39;chunk_segment&#39;): DataFrame column 
+            containing count of trajectory segment.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        method (str, default=&#39;interpolate&#39;): method for handling spikes, 
+            can be either &#39;interpolated&#39; or &#39;keep&#39;.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+    
+    # detect expected spikes that occur at beginning of each recording
+    idx_sec = seconds * fps
+    expected_spikes = []
+    for segment in trajectory[segment_col].unique():
+        df = trajectory.loc[(trajectory[segment_col]==segment)]
+        # detect spike if it exceeds threshold and occurs within first idx_sec 
+        expected_segment_spikes = list(
+            df.loc[(df[step_col] &gt;= thresh) &amp; 
+                   (df.index &lt;= (df.index[0] + idx_sec))][frame_col])
+        # append all expected spikes and data points that occur in first idx_sex frames
+        if len(expected_segment_spikes) &gt; 0:
+            [expected_spikes.append(i) for i in list(
+                range(df.index[0], max(expected_segment_spikes)+1))]
+    
+    # get index of expected spikes
+    expected_spike_idxs = trajectory.loc[trajectory[frame_col].isin(
+        expected_spikes)].index
+    
+    # reset start frame by listwise excluding expected spikes and all preceding frames  
+    trajectory = trajectory.drop(expected_spike_idxs) 
+    
+    # detect absoloute spikes with thresh-exceeding incoming step lengths
+    steps = trajectory[[frame_col, step_col]]
+    
+    # detect spikes with thresh-exceeding incoming and outgoing step lengths
+    steps[&#39;nextStep&#39;] = steps.stepLength.shift(-1)
+    spike_idxs = steps.loc[(steps[step_col]&gt;=thresh) &amp;
+                           (steps[&#39;nextStep&#39;]&gt;=thresh)][frame_col]
+    spike_idxs = list(spike_idxs)
+    
+    # label spikes as NaN and then linearly linearly or keep
+    if method == &#39;interpolate&#39;:
+        trajectory.loc[trajectory[frame_col].isin(
+            spike_idxs), [x, y]] = np.nan
+        trajectory[[x, y]] = trajectory[[x, y]].interpolate()     
+    elif method == &#39;keep&#39;:
+        pass   
+    
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+    
+    # update step length 
+    trajectory[step_col] = lbt_metrics.get_step_len(
+        trajectory[x], trajectory[y])
+    
+    # return outlier handling statistics
+    stats[&#39;num_expected_spikes&#39;] = len(expected_spikes)
+    stats[&#39;num_detected_spikes&#39;] = len(spike_idxs)  
+    stats[&#39;spike_idxs&#39;] = spike_idxs
+    
+    return trajectory, stats
+
+
+def detect_spike_seqs(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                      x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, seconds=1, 
+                      spike_seq_method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Drops consecutive sequences of point outlers from a movement track or 
+    excludes them (marks them as &#39;nan&#39;) by identifying the bounds and 
+    removing positions between them. Detected spikes can in turn either
+    dropped or linearly interpolated.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        spike_seq_method (str, default=&#39;interpolate&#39;): method for handling
+            spikes, can be either &#39;interpolated&#39; or &#39;exclude&#39;, which labels 
+            data points as NaN.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+    
+    # detect spikes with thresh-exceeding incoming and outgoing step lengths
+    spikes = trajectory.loc[trajectory[step_col] &gt;= thresh][[frame_col, step_col]]
+
+    # find first of next points with speed out &gt; thresh
+    spikes[&#39;nextSpikeFRAME&#39;] = spikes.globalFRAME.shift(-1)
+
+    # store prolonged spikes as those where nextSpikeFRAME += 1 and handle accordingly
+    prolonged_spikes = []
+    for spike in spikes.globalFRAME:
+        if float(spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME) == (spike+1):
+            prolonged_spikes.append([spike])
+            spike +=1
+
+    # store prolonged spike indicies
+    prolonged_spikes_idxs = list(set(pd.core.common.flatten(prolonged_spikes)))
+
+    # handle spike sequences accordingly
+    for spike in prolonged_spikes_idxs:
+        # handle the exception of NaN values 
+        if spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME.isnull().sum() == False:
+            # handle spikes
+            if spike_seq_method == &#39;interpolate&#39;:
+                # label spikes as NaN and then interpolate linearly
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spikes_idxs), [x, y]] = np.nan
+                trajectory[[x, y]] = trajectory[[x, y]].interpolate()
+
+            elif spike_seq_method == &#39;exclude&#39;:
+                # drop spikes
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spikes_idxs), [x, y, step_col]] = np.nan
+                
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+    
+    # return outlier handling statistics
+    stats[&#39;num_detected_prolonged_spikes&#39;] = len(prolonged_spikes_idxs)
+    stats[&#39;prolonged_spike_idxs&#39;] = list(prolonged_spikes_idxs)
+   
+    return trajectory, stats
+
+
+def detect_prolonged_spikes(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                            x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, seconds=1, 
+                            spike_seq_method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Drops subsequence outliers, or prolonged spikes from a movement track or 
+    excludes them (marks them as &#39;nan&#39;) by identifying the bounds and 
+    removing positions between them. Detected spikes can in turn either
+    dropped or linearly interpolated.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        spike_seq_method (str, default=&#39;interpolate&#39;): method for handling spikes, 
+            can be either &#39;interpolated&#39; or &#39;exclude&#39;, which labels data
+            points as NaN.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+
+    # detect spikes with thresh-exceeding incoming and outgoing step lengths
+    spikes = trajectory.loc[trajectory[step_col] &gt;= thresh][[frame_col, step_col]]
+
+    # find first of next points with speed out &gt; thresh
+    spikes[&#39;nextSpikeFRAME&#39;] = spikes.globalFRAME.shift(-1)
+
+    # store initial spikes as those where nextSpikeFRAME =+ 1 and handle spike sequences accordingly
+    spikes_idxs = []
+    for spike in spikes.globalFRAME:
+        next_spike = spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME.sum()
+        if next_spike &gt; (spike+1):
+            spikes_idxs.append([int(spike), int(next_spike)])
+            spike +=1
+
+    # store spike indicies
+    spikes_idxs = set(pd.core.common.flatten(spikes_idxs))
+
+    # detect prolonged spikes and handle accordingly
+    prolonged_spikes_idxs = []
+    spike_edges = []
+    for spike in spikes_idxs:
+        # handle the exception of NaN values 
+        next_spike = spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME.sum()
+        if spike not in spike_edges and pd.isnull(next_spike) == False:
+            # define prolonged spike 
+            prolonged_spike_idx = list(range(int(spike), int(next_spike)))
+            prolonged_spikes_idxs.append(prolonged_spike_idx)
+            spike_edges.append(spike)
+            spike_edges.append(next_spike)
+            # handle prolonged spike
+            if spike_seq_method == &#39;interpolate&#39;:
+                # label as NaN and then interpolate linearly
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spike_idx), [x, y]] = np.nan
+                trajectory[[x, y]] = trajectory[[x, y]].interpolate()
+
+            elif spike_seq_method == &#39;exclude&#39;:
+                # drop spikes
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spike_idx), [x, y, step_col]] = np.nan
+        else:
+            pass
+
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+
+    # return outlier handling statistics
+    stats[&#39;num_detected_prolonged_spikes&#39;] = len(
+        set(pd.core.common.flatten(prolonged_spikes_idxs)))
+    stats[&#39;prolonged_spike_idxs&#39;] = list(prolonged_spikes_idxs)
+
+    return trajectory, stats
+
+
+def exclude_step_lengths(trajectory,step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                          x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Listwise drops false step length metrics from a movement or excludes them 
+    (marks them as NaN).  
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, default=5): Maximum step length between frames.
+        method (str, default=&#39;nan&#39;): decides whether to drop or label
+            thresh-exceeding spikes as &#39;exclude&#39;.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+
+    # detect absoloute spikes with thresh-exceeding incoming step lengths
+    steps = trajectory[[frame_col, step_col]]
+    spike_idxs = steps.loc[steps[step_col]&gt;=(thresh)][frame_col]
+
+    # determine whether they precede an excluded data point
+    excess_spike_idxs = []
+    for i in spike_idxs:
+        if np.isnan(float(steps[step_col].loc[steps[frame_col]==(i-1)])):
+            excess_spike_idxs.append(i)
+
+    # drop spikes based on index values or label as nan
+    if method == &#39;exclude&#39;:
+        trajectory.loc[trajectory[frame_col].isin(
+            excess_spike_idxs), [step_col]] = np.nan
+
+    elif method == &#39;drop&#39;:
+        trajectory = trajectory.drop(list(excess_spike_idxs))
+
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+
+    return trajectory, stats
+    
+
+def exclude_interpolated_points(trajectory, step_col=&#39;stepLength&#39;, 
+                                frame_col=&#39;globalFRAME&#39;,x=&#39;x&#39;, y=&#39;y&#39;,
+                                thresh=5, method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Listwise excludes point outliers, or spikes, from a movement that exceed a 
+    predefined tep length. 
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, default=5): Maximum step length between frames.
+        method (str, default=&#39;nan&#39;): decides whether to drop or label
+            thresh-exceeding spikes as &#39;exclude&#39;.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+
+    # detect absoloute spikes with thresh-exceeding incoming step lengths
+    steps = trajectory[[frame_col, step_col]]
+    excess_spike_idxs = steps.loc[steps[step_col]&gt;=(thresh)][frame_col]
+
+    # drop spikes based on index values or label as nan
+    if method == &#39;exclude&#39;:
+        trajectory.loc[trajectory[frame_col].isin(
+            excess_spike_idxs), [x, y, step_col]] = np.nan
+
+    elif method == &#39;drop&#39;:
+        trajectory = trajectory.drop(list(excess_spike_idxs))
+
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+
+    # return outlier handling statistics
+    stats[&#39;num_excess_spikes&#39;] = len(excess_spike_idxs)  
+    stats[&#39;excess_spike_idxs&#39;] = excess_spike_idxs
+    
+    return trajectory, stats
+
+
+def check_step_length_col(trajectory, step_col=&#39;stepLength&#39;, x=&#39;x&#39;, y=&#39;y&#39;):
+    &#34;&#34;&#34;
+    Add column to trajectory with step length between rows of x
+    and y-coordinates.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        
+    Returns:
+        trajectory.
+    &#34;&#34;&#34;
+    if step_col not in trajectory.columns:
+        trajectory[step_col] = lbt_metrics.get_step_len(
+            trajectory[x], trajectory[y])
+    
+    return trajectory</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="libratools.lbt_outlier_detection.check_step_length_col"><code class="name flex">
+<span>def <span class="ident">check_step_length_col</span></span>(<span>trajectory, step_col='stepLength', x='x', y='y')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add column to trajectory with step length between rows of x
+and y-coordinates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+</dl>
+<p>x (str, default='x'): DataFrame column containing x-coordinate.
+y (str, default='y'): DataFrame column containing y-coordinate.</p>
+<h2 id="returns">Returns</h2>
+<p>trajectory.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_step_length_col(trajectory, step_col=&#39;stepLength&#39;, x=&#39;x&#39;, y=&#39;y&#39;):
+    &#34;&#34;&#34;
+    Add column to trajectory with step length between rows of x
+    and y-coordinates.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        
+    Returns:
+        trajectory.
+    &#34;&#34;&#34;
+    if step_col not in trajectory.columns:
+        trajectory[step_col] = lbt_metrics.get_step_len(
+            trajectory[x], trajectory[y])
+    
+    return trajectory</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_outlier_detection.detect_prolonged_spikes"><code class="name flex">
+<span>def <span class="ident">detect_prolonged_spikes</span></span>(<span>trajectory, step_col='stepLength', frame_col='globalFRAME', x='x', y='y', thresh=5, fps=5, seconds=1, spike_seq_method='exclude')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Drops subsequence outliers, or prolonged spikes from a movement track or
+excludes them (marks them as 'nan') by identifying the bounds and
+removing positions between them. Detected spikes can in turn either
+dropped or linearly interpolated.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+<dt>frame_col (str, default='globalFRAME'): DataFrame column containing</dt>
+<dt>frame count.</dt>
+<dt>x (str, default='x'): DataFrame column containing x-coordinate.</dt>
+<dt>y (str, default='y'): DataFrame column containing y-coordinate.</dt>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int, deafult=5</code></dt>
+<dd>Maximum step length between frames.</dd>
+<dt><strong><code>fps</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>number of frames per second.</dd>
+<dt><strong><code>seconds</code></strong> :&ensp;<code>int</code>, default=<code>1</code></dt>
+<dd>number of seconds for which to exclude
+rows before commencing outlier detection.</dd>
+</dl>
+<p>spike_seq_method (str, default='interpolate'): method for handling spikes,
+can be either 'interpolated' or 'exclude', which labels data
+points as NaN.</p>
+<h2 id="returns">Returns</h2>
+<p>trajectory (pandas.DataFrame): movement track with outliers
+excluded or interpolated.
+stats (dict): excluded frame count and number of outliers detected
+count.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_prolonged_spikes(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                            x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, seconds=1, 
+                            spike_seq_method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Drops subsequence outliers, or prolonged spikes from a movement track or 
+    excludes them (marks them as &#39;nan&#39;) by identifying the bounds and 
+    removing positions between them. Detected spikes can in turn either
+    dropped or linearly interpolated.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        spike_seq_method (str, default=&#39;interpolate&#39;): method for handling spikes, 
+            can be either &#39;interpolated&#39; or &#39;exclude&#39;, which labels data
+            points as NaN.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+
+    # detect spikes with thresh-exceeding incoming and outgoing step lengths
+    spikes = trajectory.loc[trajectory[step_col] &gt;= thresh][[frame_col, step_col]]
+
+    # find first of next points with speed out &gt; thresh
+    spikes[&#39;nextSpikeFRAME&#39;] = spikes.globalFRAME.shift(-1)
+
+    # store initial spikes as those where nextSpikeFRAME =+ 1 and handle spike sequences accordingly
+    spikes_idxs = []
+    for spike in spikes.globalFRAME:
+        next_spike = spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME.sum()
+        if next_spike &gt; (spike+1):
+            spikes_idxs.append([int(spike), int(next_spike)])
+            spike +=1
+
+    # store spike indicies
+    spikes_idxs = set(pd.core.common.flatten(spikes_idxs))
+
+    # detect prolonged spikes and handle accordingly
+    prolonged_spikes_idxs = []
+    spike_edges = []
+    for spike in spikes_idxs:
+        # handle the exception of NaN values 
+        next_spike = spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME.sum()
+        if spike not in spike_edges and pd.isnull(next_spike) == False:
+            # define prolonged spike 
+            prolonged_spike_idx = list(range(int(spike), int(next_spike)))
+            prolonged_spikes_idxs.append(prolonged_spike_idx)
+            spike_edges.append(spike)
+            spike_edges.append(next_spike)
+            # handle prolonged spike
+            if spike_seq_method == &#39;interpolate&#39;:
+                # label as NaN and then interpolate linearly
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spike_idx), [x, y]] = np.nan
+                trajectory[[x, y]] = trajectory[[x, y]].interpolate()
+
+            elif spike_seq_method == &#39;exclude&#39;:
+                # drop spikes
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spike_idx), [x, y, step_col]] = np.nan
+        else:
+            pass
+
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+
+    # return outlier handling statistics
+    stats[&#39;num_detected_prolonged_spikes&#39;] = len(
+        set(pd.core.common.flatten(prolonged_spikes_idxs)))
+    stats[&#39;prolonged_spike_idxs&#39;] = list(prolonged_spikes_idxs)
+
+    return trajectory, stats</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_outlier_detection.detect_spike_seqs"><code class="name flex">
+<span>def <span class="ident">detect_spike_seqs</span></span>(<span>trajectory, step_col='stepLength', frame_col='globalFRAME', x='x', y='y', thresh=5, fps=5, seconds=1, spike_seq_method='exclude')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Drops consecutive sequences of point outlers from a movement track or
+excludes them (marks them as 'nan') by identifying the bounds and
+removing positions between them. Detected spikes can in turn either
+dropped or linearly interpolated.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+<dt>frame_col (str, default='globalFRAME'): DataFrame column containing</dt>
+<dt>frame count.</dt>
+<dt>x (str, default='x'): DataFrame column containing x-coordinate.</dt>
+<dt>y (str, default='y'): DataFrame column containing y-coordinate.</dt>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int, deafult=5</code></dt>
+<dd>Maximum step length between frames.</dd>
+<dt><strong><code>fps</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>number of frames per second.</dd>
+<dt><strong><code>seconds</code></strong> :&ensp;<code>int</code>, default=<code>1</code></dt>
+<dd>number of seconds for which to exclude
+rows before commencing outlier detection.</dd>
+</dl>
+<p>spike_seq_method (str, default='interpolate'): method for handling
+spikes, can be either 'interpolated' or 'exclude', which labels
+data points as NaN.</p>
+<h2 id="returns">Returns</h2>
+<p>trajectory (pandas.DataFrame): movement track with outliers
+excluded or interpolated.
+stats (dict): excluded frame count and number of outliers detected
+count.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_spike_seqs(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                      x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, seconds=1, 
+                      spike_seq_method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Drops consecutive sequences of point outlers from a movement track or 
+    excludes them (marks them as &#39;nan&#39;) by identifying the bounds and 
+    removing positions between them. Detected spikes can in turn either
+    dropped or linearly interpolated.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        spike_seq_method (str, default=&#39;interpolate&#39;): method for handling
+            spikes, can be either &#39;interpolated&#39; or &#39;exclude&#39;, which labels 
+            data points as NaN.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+    
+    # detect spikes with thresh-exceeding incoming and outgoing step lengths
+    spikes = trajectory.loc[trajectory[step_col] &gt;= thresh][[frame_col, step_col]]
+
+    # find first of next points with speed out &gt; thresh
+    spikes[&#39;nextSpikeFRAME&#39;] = spikes.globalFRAME.shift(-1)
+
+    # store prolonged spikes as those where nextSpikeFRAME += 1 and handle accordingly
+    prolonged_spikes = []
+    for spike in spikes.globalFRAME:
+        if float(spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME) == (spike+1):
+            prolonged_spikes.append([spike])
+            spike +=1
+
+    # store prolonged spike indicies
+    prolonged_spikes_idxs = list(set(pd.core.common.flatten(prolonged_spikes)))
+
+    # handle spike sequences accordingly
+    for spike in prolonged_spikes_idxs:
+        # handle the exception of NaN values 
+        if spikes.loc[spikes[frame_col]==spike].nextSpikeFRAME.isnull().sum() == False:
+            # handle spikes
+            if spike_seq_method == &#39;interpolate&#39;:
+                # label spikes as NaN and then interpolate linearly
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spikes_idxs), [x, y]] = np.nan
+                trajectory[[x, y]] = trajectory[[x, y]].interpolate()
+
+            elif spike_seq_method == &#39;exclude&#39;:
+                # drop spikes
+                trajectory.loc[trajectory[frame_col].isin(
+                    prolonged_spikes_idxs), [x, y, step_col]] = np.nan
+                
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+    
+    # return outlier handling statistics
+    stats[&#39;num_detected_prolonged_spikes&#39;] = len(prolonged_spikes_idxs)
+    stats[&#39;prolonged_spike_idxs&#39;] = list(prolonged_spikes_idxs)
+   
+    return trajectory, stats</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_outlier_detection.detect_spikes"><code class="name flex">
+<span>def <span class="ident">detect_spikes</span></span>(<span>trajectory, step_col='stepLength', frame_col='globalFRAME', segment_col='chunk_segment', x='x', y='y', thresh=5, fps=5, seconds=1, method='interpolate')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes point outliers, or spikes, from a movement track by identifying
+locations with extreme incoming and outgoing step lengths that surpass a
+user-defined upper threshold. Detected spikes can in turn either kept or
+linearly interpolated.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+<dt>frame_col (str, default='globalFRAME'): DataFrame column containing</dt>
+<dt>frame count.</dt>
+<dt>segment_col (str, default='chunk_segment'): DataFrame column</dt>
+<dt>containing count of trajectory segment.</dt>
+<dt>x (str, default='x'): DataFrame column containing x-coordinate.</dt>
+<dt>y (str, default='y'): DataFrame column containing y-coordinate.</dt>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int, deafult=5</code></dt>
+<dd>Maximum step length between frames.</dd>
+<dt><strong><code>fps</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>number of frames per second.</dd>
+<dt><strong><code>seconds</code></strong> :&ensp;<code>int</code>, default=<code>1</code></dt>
+<dd>number of seconds for which to exclude
+rows before commencing outlier detection.</dd>
+</dl>
+<p>method (str, default='interpolate'): method for handling spikes,
+can be either 'interpolated' or 'keep'.</p>
+<h2 id="returns">Returns</h2>
+<p>trajectory (pandas.DataFrame): movement track with outliers
+excluded or interpolated.
+stats (dict): excluded frame count and number of outliers detected
+count.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_spikes(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                  segment_col=&#39;chunk_segment&#39;, x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, 
+                  seconds=1, method=&#39;interpolate&#39;):
+    &#34;&#34;&#34;
+    Removes point outliers, or spikes, from a movement track by identifying
+    locations with extreme incoming and outgoing step lengths that surpass a
+    user-defined upper threshold. Detected spikes can in turn either kept or
+    linearly interpolated.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        segment_col (str, default=&#39;chunk_segment&#39;): DataFrame column 
+            containing count of trajectory segment.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        method (str, default=&#39;interpolate&#39;): method for handling spikes, 
+            can be either &#39;interpolated&#39; or &#39;keep&#39;.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+    
+    # detect expected spikes that occur at beginning of each recording
+    idx_sec = seconds * fps
+    expected_spikes = []
+    for segment in trajectory[segment_col].unique():
+        df = trajectory.loc[(trajectory[segment_col]==segment)]
+        # detect spike if it exceeds threshold and occurs within first idx_sec 
+        expected_segment_spikes = list(
+            df.loc[(df[step_col] &gt;= thresh) &amp; 
+                   (df.index &lt;= (df.index[0] + idx_sec))][frame_col])
+        # append all expected spikes and data points that occur in first idx_sex frames
+        if len(expected_segment_spikes) &gt; 0:
+            [expected_spikes.append(i) for i in list(
+                range(df.index[0], max(expected_segment_spikes)+1))]
+    
+    # get index of expected spikes
+    expected_spike_idxs = trajectory.loc[trajectory[frame_col].isin(
+        expected_spikes)].index
+    
+    # reset start frame by listwise excluding expected spikes and all preceding frames  
+    trajectory = trajectory.drop(expected_spike_idxs) 
+    
+    # detect absoloute spikes with thresh-exceeding incoming step lengths
+    steps = trajectory[[frame_col, step_col]]
+    
+    # detect spikes with thresh-exceeding incoming and outgoing step lengths
+    steps[&#39;nextStep&#39;] = steps.stepLength.shift(-1)
+    spike_idxs = steps.loc[(steps[step_col]&gt;=thresh) &amp;
+                           (steps[&#39;nextStep&#39;]&gt;=thresh)][frame_col]
+    spike_idxs = list(spike_idxs)
+    
+    # label spikes as NaN and then linearly linearly or keep
+    if method == &#39;interpolate&#39;:
+        trajectory.loc[trajectory[frame_col].isin(
+            spike_idxs), [x, y]] = np.nan
+        trajectory[[x, y]] = trajectory[[x, y]].interpolate()     
+    elif method == &#39;keep&#39;:
+        pass   
+    
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+    
+    # update step length 
+    trajectory[step_col] = lbt_metrics.get_step_len(
+        trajectory[x], trajectory[y])
+    
+    # return outlier handling statistics
+    stats[&#39;num_expected_spikes&#39;] = len(expected_spikes)
+    stats[&#39;num_detected_spikes&#39;] = len(spike_idxs)  
+    stats[&#39;spike_idxs&#39;] = spike_idxs
+    
+    return trajectory, stats</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_outlier_detection.exclude_interpolated_points"><code class="name flex">
+<span>def <span class="ident">exclude_interpolated_points</span></span>(<span>trajectory, step_col='stepLength', frame_col='globalFRAME', x='x', y='y', thresh=5, method='exclude')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Listwise excludes point outliers, or spikes, from a movement that exceed a
+predefined tep length. </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+<dt>frame_col (str, default='globalFRAME'): DataFrame column containing</dt>
+<dt>frame count.</dt>
+<dt>x (str, default='x'): DataFrame column containing x-coordinate.</dt>
+<dt>y (str, default='y'): DataFrame column containing y-coordinate.</dt>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>Maximum step length between frames.</dd>
+</dl>
+<p>method (str, default='nan'): decides whether to drop or label
+thresh-exceeding spikes as 'exclude'.</p>
+<h2 id="returns">Returns</h2>
+<p>trajectory (pandas.DataFrame): movement track with outliers
+excluded or interpolated.
+stats (dict): excluded frame count and number of outliers detected
+count.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exclude_interpolated_points(trajectory, step_col=&#39;stepLength&#39;, 
+                                frame_col=&#39;globalFRAME&#39;,x=&#39;x&#39;, y=&#39;y&#39;,
+                                thresh=5, method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Listwise excludes point outliers, or spikes, from a movement that exceed a 
+    predefined tep length. 
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, default=5): Maximum step length between frames.
+        method (str, default=&#39;nan&#39;): decides whether to drop or label
+            thresh-exceeding spikes as &#39;exclude&#39;.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+
+    # detect absoloute spikes with thresh-exceeding incoming step lengths
+    steps = trajectory[[frame_col, step_col]]
+    excess_spike_idxs = steps.loc[steps[step_col]&gt;=(thresh)][frame_col]
+
+    # drop spikes based on index values or label as nan
+    if method == &#39;exclude&#39;:
+        trajectory.loc[trajectory[frame_col].isin(
+            excess_spike_idxs), [x, y, step_col]] = np.nan
+
+    elif method == &#39;drop&#39;:
+        trajectory = trajectory.drop(list(excess_spike_idxs))
+
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+
+    # return outlier handling statistics
+    stats[&#39;num_excess_spikes&#39;] = len(excess_spike_idxs)  
+    stats[&#39;excess_spike_idxs&#39;] = excess_spike_idxs
+    
+    return trajectory, stats</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_outlier_detection.exclude_step_lengths"><code class="name flex">
+<span>def <span class="ident">exclude_step_lengths</span></span>(<span>trajectory, step_col='stepLength', frame_col='globalFRAME', x='x', y='y', thresh=5, method='exclude')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Listwise drops false step length metrics from a movement or excludes them
+(marks them as NaN).
+</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+<dt>frame_col (str, default='globalFRAME'): DataFrame column containing</dt>
+<dt>frame count.</dt>
+<dt>x (str, default='x'): DataFrame column containing x-coordinate.</dt>
+<dt>y (str, default='y'): DataFrame column containing y-coordinate.</dt>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>Maximum step length between frames.</dd>
+</dl>
+<p>method (str, default='nan'): decides whether to drop or label
+thresh-exceeding spikes as 'exclude'.</p>
+<h2 id="returns">Returns</h2>
+<p>trajectory (pandas.DataFrame): movement track with outliers
+excluded or interpolated.
+stats (dict): excluded frame count and number of outliers detected
+count.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exclude_step_lengths(trajectory,step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                          x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, method=&#39;exclude&#39;):
+    &#34;&#34;&#34;
+    Listwise drops false step length metrics from a movement or excludes them 
+    (marks them as NaN).  
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, default=5): Maximum step length between frames.
+        method (str, default=&#39;nan&#39;): decides whether to drop or label
+            thresh-exceeding spikes as &#39;exclude&#39;.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;
+    # instantiate dict to collect stats
+    stats = {}
+    
+    # append step length between frames to column
+    check_step_length_col(trajectory)
+
+    # detect absoloute spikes with thresh-exceeding incoming step lengths
+    steps = trajectory[[frame_col, step_col]]
+    spike_idxs = steps.loc[steps[step_col]&gt;=(thresh)][frame_col]
+
+    # determine whether they precede an excluded data point
+    excess_spike_idxs = []
+    for i in spike_idxs:
+        if np.isnan(float(steps[step_col].loc[steps[frame_col]==(i-1)])):
+            excess_spike_idxs.append(i)
+
+    # drop spikes based on index values or label as nan
+    if method == &#39;exclude&#39;:
+        trajectory.loc[trajectory[frame_col].isin(
+            excess_spike_idxs), [step_col]] = np.nan
+
+    elif method == &#39;drop&#39;:
+        trajectory = trajectory.drop(list(excess_spike_idxs))
+
+    # reset globalFRAME
+    trajectory[frame_col] = pd.RangeIndex(start=0, stop=len(trajectory), step=1)
+
+    return trajectory, stats</code></pre>
+</details>
+</dd>
+<dt id="libratools.lbt_outlier_detection.run_detection"><code class="name flex">
+<span>def <span class="ident">run_detection</span></span>(<span>trajectory, step_col='stepLength', frame_col='globalFRAME', segment_col='chunk_segment', x='x', y='y', thresh=5, fps=5, seconds=1, spike_method='interpolate', spike_seq_method='exclude', corrupt_thresh=10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Implements outlier detection by detecting subsequence outliers, point
+outliers and checking whether the movement track is corrupt, i.e. a
+certain number of data points labelled as outliers exceed a used-defined
+data corruption threshold.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trajectory</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>movement track.</dd>
+<dt><strong><code>step_col</code></strong> :&ensp;<code>str</code>, default=<code>stepLength</code></dt>
+<dd>DataFrame column containg step
+lengths.</dd>
+<dt>frame_col (str, default='globalFRAME'): DataFrame column containing</dt>
+<dt>frame count.</dt>
+<dt>segment_col (str, default='chunk_segment'): DataFrame column</dt>
+<dt>containing count of trajectory segment.</dt>
+<dt>x (str, default='x'): DataFrame column containing x-coordinate.</dt>
+<dt>y (str, default='y'): DataFrame column containing y-coordinate.</dt>
+<dt><strong><code>thresh</code></strong> :&ensp;<code>int, deafult=5</code></dt>
+<dd>Maximum step length between frames.</dd>
+<dt><strong><code>fps</code></strong> :&ensp;<code>int</code>, default=<code>5</code></dt>
+<dd>number of frames per second.</dd>
+<dt><strong><code>seconds</code></strong> :&ensp;<code>int</code>, default=<code>1</code></dt>
+<dd>number of seconds for which to exclude
+rows before commencing outlier detection.</dd>
+<dt>spike_method (str, default='interpolate'): method for handling spikes,</dt>
+<dt>can be either 'interpolated' or 'keep'.</dt>
+<dt>spike_seq_method (str, default='drop'): method for handling spike</dt>
+<dt>sequences, can be either 'interpolated' or 'keep'.</dt>
+<dt><strong><code>corrupt_thresh</code></strong> :&ensp;<code>int</code>, default=<code>10</code></dt>
+<dd>the number of data points labelled
+as outliers as a percentage of all data points that a track
+is allowed to have, if this value is exceeded the track is
+labelled as being likely corrupted.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>trajectory (pandas.DataFrame): movement track with outliers
+excluded or interpolated.
+stats (dict): excluded frame count and number of outliers detected
+count.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_detection(trajectory, step_col=&#39;stepLength&#39;, frame_col=&#39;globalFRAME&#39;,
+                  segment_col=&#39;chunk_segment&#39;, x=&#39;x&#39;, y=&#39;y&#39;, thresh=5, fps=5, 
+                  seconds=1, spike_method=&#39;interpolate&#39;, spike_seq_method=&#39;exclude&#39;,
+                  corrupt_thresh=10):
+    &#34;&#34;&#34;
+    Implements outlier detection by detecting subsequence outliers, point
+    outliers and checking whether the movement track is corrupt, i.e. a 
+    certain number of data points labelled as outliers exceed a used-defined
+    data corruption threshold.
+    
+    Args:
+        trajectory (pandas.DataFrame): movement track.
+        step_col (str, default=stepLength): DataFrame column containg step
+            lengths.
+        frame_col (str, default=&#39;globalFRAME&#39;): DataFrame column containing
+            frame count.
+        segment_col (str, default=&#39;chunk_segment&#39;): DataFrame column 
+            containing count of trajectory segment.
+        x (str, default=&#39;x&#39;): DataFrame column containing x-coordinate.
+        y (str, default=&#39;y&#39;): DataFrame column containing y-coordinate.
+        thresh (int, deafult=5): Maximum step length between frames.
+        fps (int, default=5): number of frames per second.
+        seconds (int, default=1): number of seconds for which to exclude
+            rows before commencing outlier detection.
+        spike_method (str, default=&#39;interpolate&#39;): method for handling spikes, 
+            can be either &#39;interpolated&#39; or &#39;keep&#39;.
+        spike_seq_method (str, default=&#39;drop&#39;): method for handling spike 
+            sequences, can be either &#39;interpolated&#39; or &#39;keep&#39;.
+        corrupt_thresh (int, default=10): the number of data points labelled
+            as outliers as a percentage of all data points that a track
+            is allowed to have, if this value is exceeded the track is
+            labelled as being likely corrupted.
+        
+    Returns:
+        trajectory (pandas.DataFrame): movement track with outliers 
+            excluded or interpolated.
+        stats (dict): excluded frame count and number of outliers detected
+            count.
+    &#34;&#34;&#34;    
+    # detect point outliers or &#39;spikes&#39; and handle accordingly
+    trajectory, spike_stats = detect_spikes(
+        trajectory, step_col, frame_col, segment_col, x, y, thresh, 
+        fps, seconds, spike_method)  
+    
+    # detect subsequence outliers or &#39;prolonged spikes&#39; and handle accordingly
+    trajectory, prolonged_spike_stats = detect_spike_seqs(
+        trajectory, step_col, frame_col, x, y, thresh, 
+        fps, seconds, spike_seq_method)
+    trajectory, prolonged_spike_stats = detect_prolonged_spikes(
+        trajectory, step_col, frame_col, x, y, thresh, 
+        fps, seconds, spike_seq_method)
+    
+    # merge outlier stats
+    stats = {**prolonged_spike_stats, **spike_stats} 
+       
+    # remove spikes which are the lower or upper bound of a sequence
+    stats[&#39;spike_idxs&#39;] = [i for i in stats[
+        &#39;spike_idxs&#39;] if i not in stats[&#39;prolonged_spike_idxs&#39;]]
+            
+    # create new combined total of data points deemed to be spikes
+    stats[&#39;num_detected_spikes&#39;] = len(stats[&#39;spike_idxs&#39;])
+    stats[&#39;total_num_detected_spikes&#39;] = prolonged_spike_stats[
+          &#39;num_detected_prolonged_spikes&#39;] + stats[
+          &#39;num_detected_spikes&#39;] + stats[
+          &#39;num_expected_spikes&#39;]
+    
+    # label outlying trajectories if total number of outliers exceeds threshold
+    num_data_points = min(trajectory[[x, y]].notnull().sum())
+        
+    if (stats[&#39;total_num_detected_spikes&#39;] / num_data_points) * 100 &gt;= corrupt_thresh:
+        stats[&#39;corruption_likelihood&#39;] = &#39;positive&#39;
+    else:
+        stats[&#39;corruption_likelihood&#39;] = &#39;negative&#39;
+    
+    return trajectory, stats</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Home</h3>
+<ul>
+<li><code><a title="libratools" href="index.html">libratools</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="libratools.lbt_outlier_detection.check_step_length_col" href="#libratools.lbt_outlier_detection.check_step_length_col">check_step_length_col</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection.detect_prolonged_spikes" href="#libratools.lbt_outlier_detection.detect_prolonged_spikes">detect_prolonged_spikes</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection.detect_spike_seqs" href="#libratools.lbt_outlier_detection.detect_spike_seqs">detect_spike_seqs</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection.detect_spikes" href="#libratools.lbt_outlier_detection.detect_spikes">detect_spikes</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection.exclude_interpolated_points" href="#libratools.lbt_outlier_detection.exclude_interpolated_points">exclude_interpolated_points</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection.exclude_step_lengths" href="#libratools.lbt_outlier_detection.exclude_step_lengths">exclude_step_lengths</a></code></li>
+<li><code><a title="libratools.lbt_outlier_detection.run_detection" href="#libratools.lbt_outlier_detection.run_detection">run_detection</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
