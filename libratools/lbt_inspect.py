@@ -21,10 +21,6 @@ __email__ = "vincejstraub@gmail.com"
 __status__ = "Testing"
 
 
-def main():
-    pass
-
-
 def get_step_len_stats(trajectory, step_col='stepLength'):
     """
     Returns mean, max, var, and standard deviation for step length,
@@ -252,7 +248,3 @@ def time_change_between_timestamps(starttime, endtime,
         return d_hrs
     else:
         print('unit needs to be one of: mins, hrs.')
-        
-        
-if __name__ == '__main__':
-    main()
