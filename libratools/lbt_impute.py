@@ -15,10 +15,6 @@ __email__ = "vincejstraub@gmail.com"
 __status__ = "Testing"
 
 
-def main():
-    pass
-
-
 def fill_missing(df, remove_first_last=True, interpolate=['time'],
                  ffill=['timeString']):
     """
@@ -84,7 +80,3 @@ def remove_first_last_nans(df, cols=['x', 'y']):
     df = df.loc[first_idx:last_idx]
 
     return df
-
-
-if __name__ == '__main__':
-    main()
