@@ -43,10 +43,6 @@ class configReader:
 BIOTRACKER_COLS = configReader.config()['VARS']['BIOTRACKER_COLS'].split(',\n')
 
 
-def main():
-    pass
-
-
 def check_columns(df, columns=BIOTRACKER_COLS):
     """
     Checks there are expected number of columns, returns dataframe
@@ -428,7 +424,3 @@ def dict_to_comments(dic, sep=': '):
     comments = ['# '+str(k)+sep+str(v)+'\n' for k, v in dic.items()]
 
     return comments
-
-
-if __name__ == '__main__':
-    main()
