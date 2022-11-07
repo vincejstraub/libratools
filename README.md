@@ -36,9 +36,7 @@ Please read ____ for details on code conventions, and the process for submitting
 
 ## Requirements
 
-Requirements are listed in the file :
-
-* `requirements.txt`
+Requirements are listed in the `requirements.txt` file.
 
 To install dependencies do the following:
 
