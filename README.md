@@ -40,4 +40,10 @@ Requirements are listed in the file :
 
 * `requirements.txt`
 
+To install dependencies do the following:
+
+```bash
+pip install -r requirements.txt
+```
+
 Please follow  online instructions to install the required libraries, depending on your operating system and machine specifications.
