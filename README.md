@@ -12,7 +12,9 @@ libratools does not provide functionality to label trajectories; it operates on 
 
 ## Installation and Setup
 
- $ `pip install -e . --user.` 
+```bash
+pip install git+https://github.com/vincejstraub/tools-libratools.git
+```
 
 ## Documentation
 
